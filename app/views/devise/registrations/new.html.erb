@@ -4,6 +4,12 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+  <%= f.label :'Are you looking to hire or looking for work'%>
+  <%= f.select :type, ['Hirer','Free Lancer']%>
+  <div>
+
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
