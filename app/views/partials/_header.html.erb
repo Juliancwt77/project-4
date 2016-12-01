@@ -46,17 +46,20 @@
                                           </p>
                                       </div>
                                       <div class="col-lg-8">
-                                          <p class="text-left"><strong>Salman Khan</strong></p>
-                                          <p class="text-left small">crazytodevelop@@gmail.com</p>
-                                          <p class="text-left">
-                                              <a href="#" class="btn btn-primary btn-block btn-sm">Profile</a>
-                                          </p>
+                                          <p class="text-left"><strong><%= current_user.username %></strong></p>
+                                          <p class="text-left small"><%= current_user.email %></p>
+
                                       </div>
                                   </div>
                               </div>
                           </li>
                           <li class="divider navbar-login-session-bg"></li>
-                           <li><a href="#">Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
+
+                          <li><%= link_to edit_user_registration_path, :class => "dropdowntext" do %>Update Profile
+                            <!-- <span class="badge pull-right">5</span> --><span class="glyphicon glyphicon-list-alt pull-right"></span>
+                            <% end %>
+                          </li>
+
               <li class="divider"></li>
               <li><a href="#">User stats <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
               <li class="divider"></li>
