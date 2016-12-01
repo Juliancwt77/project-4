@@ -4,6 +4,38 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/*========================
+ALERT MESSAGE
+========================*/
+.alertMessage {
+ position: absolute;;
+ width: 300px;
+ Top: 30px;
+ right: 0px;
+ text-align: center;
+ opacity: 0.9;
+ z-index: 99999999;
+}
+
+.navbar-login
+{
+    width: 305px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.navbar-login-session
+{
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.icon-size
+{
+    font-size: 87px;
+}
+
 body {
 	font-size: 15px;
     line-height: 1.52;
