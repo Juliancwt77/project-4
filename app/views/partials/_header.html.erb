@@ -15,14 +15,12 @@
         <span class="icon-bar"></span>
       </button>
 
-      <%= link_to root_path, class: "navbar-brand" %>
-
-      Freelancer<span> Xchange</span>
+     <a class="navbar-brand" href="#">Freelancer<span> Xchange</span></a>
 
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Browse"%></li>
+        <li><%= link_to "Browse", postings_path %></li>
         <% if current_user.user_type == "Freelancer" %>
         <li><%= link_to "Jobs Offered"%></li>
 
@@ -60,13 +58,18 @@
                           </li>
                           <li class="divider navbar-login-session-bg"></li>
 
-                          <li><%= link_to edit_user_registration_path, :class => "dropdowntext" do %>Update Profile
+                          <li><%= link_to edit_user_registration_path, :class => "dropdowntext" do %>Your personal Profile
                             <!-- <span class="badge pull-right">5</span> --><span class="glyphicon glyphicon-list-alt pull-right"></span>
                             <% end %>
                           </li>
 
               <li class="divider"></li>
-              <li><a href="#">User stats <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
+              <li><%= link_to edit_user_registration_path, :class => "dropdowntext" do %>Your Job Profile
+                <!-- <span class="badge pull-right">5</span> --><span class="glyphicon glyphicon-list-alt pull-right"></span>
+                <% end %>
+              </li>
+
+
               <li class="divider"></li>
               <li><a href="#">Messages <span class="badge pull-right"> 42 </span></a></li>
               <li class="divider"></li>
