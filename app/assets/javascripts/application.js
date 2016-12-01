@@ -15,3 +15,5 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+// = bootstrap-sprockets
+// = jquery.easing.min
