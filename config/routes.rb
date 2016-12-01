@@ -9,7 +9,9 @@ devise_for :users, :controllers => { :registrations => 'users/registrations'}
 
     get 'contact', to: 'home#contact'
 
+    resources :recruits
 
+    resources :candidates
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
