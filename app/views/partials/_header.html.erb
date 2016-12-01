@@ -14,7 +14,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Freelancer<span> Xchange</span></a>
+
+      <%= link_to root_path, class: "navbar-brand" %>
+
+      Freelancer<span> Xchange</span>
+
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
@@ -105,7 +109,7 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Browse"%></li>
+        <li><%= link_to "Browse", postings_path %></li>
         <li><a href="#organisations">About Us</a></li>
         <li><%= link_to "Log In",new_user_session_path%></li>
         <li class="btn-trial"><%= link_to "Sign Up Now",new_user_registration_path%></a></li>
