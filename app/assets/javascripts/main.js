@@ -1,5 +1,9 @@
 $(document).on('turbolinks:load', function () {
 
+  // NAVBAR DROPDOWN MENU
+
+$('.dropdown-toggle').dropdown()
+
 (function ($) {
 
     // Navigation scrolls
