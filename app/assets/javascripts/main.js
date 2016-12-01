@@ -4,6 +4,16 @@ $(document).on('turbolinks:load', function () {
 
 $('.dropdown-toggle').dropdown()
 
+// ALERT MESSAGE
+
+$('.alertMessage').show()
+// setTimeout(function() { $(".alertMessage").hide(); }, 1500)
+setTimeout(function () {
+  // TODO: Fix this code below
+  $('.alertMessage').fadeOut(5000)
+
+})
+
 (function ($) {
 
     // Navigation scrolls

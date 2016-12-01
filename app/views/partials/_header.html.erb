@@ -3,9 +3,10 @@
 
   <!--/ Modal box-->
   <% if user_signed_in? %>
+
   <!-- USER -->
 
-  <nav class="navbar navbar-default navbar-fixed-top">
+  <<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -17,39 +18,61 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#feature">Features</a></li>
         <li><%= link_to "Browse"%></li>
+        <% if current_user.user_type == "Freelancer" %>
+        <li><%= link_to "Jobs Offered"%></li>
+
+        <%else %>
+
+        <li><%= link_to "Job Offers"%></li>
+
+        <% end %>
         <li><a href="#organisations">About Us</a></li>
+        <!-- USER -->
+        <li><ul class="nav navbar-nav navbar-right">
+                  <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                          <span class="glyphicon glyphicon-user"></span>
+                          <strong></strong>
+                          <span class="glyphicon glyphicon-chevron-down"></span>
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li>
+                              <div class="navbar-login">
+                                  <div class="row">
+                                      <div class="col-lg-4">
+                                          <p class="text-center">
+                                              <span class="glyphicon glyphicon-user icon-size"></span>
+                                          </p>
+                                      </div>
+                                      <div class="col-lg-8">
+                                            <p class="text-left"><h4 class="user"><%= current_user.user_type  %></h4></p>
+                                          <p class="text-left"><strong><%= current_user.username %></strong></p>
+                                          <p class="text-left small"><%= current_user.email %></p>
 
-        <li class="dropdown">
-          <a class="dropdown">
-            <span class="glyphicon glyphicon-user navbarlink"></span>
-            <strong class="navbarlink"><%= current_user.name %></strong>
-            <span class="caret navbarlink"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li>
-              <div class="navbar-login">
-                <div class="row">
-                  <div class="col-lg-4">
-                    <p class="text-center">
-                      <span class="glyphicon glyphicon-user icon-size"></span>
-                    </p>
-                  </div>
-                  <div class="col-lg-8">
-                    <p class="text-left"><strong><%= current_user.username %></strong></p>
-                    <p class="text-left small"><%= current_user.email %></p>
-                    <p class="text-left">
+                                      </div>
+                                  </div>
+                              </div>
+                          </li>
+                          <li class="divider navbar-login-session-bg"></li>
 
-                      <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary btn-md editprofile"%>
-                    </p>
-                  </div>
-                </div>
-              </div>
+                          <li><%= link_to edit_user_registration_path, :class => "dropdowntext" do %>Update Profile
+                            <!-- <span class="badge pull-right">5</span> --><span class="glyphicon glyphicon-list-alt pull-right"></span>
+                            <% end %>
+                          </li>
+
+              <li class="divider"></li>
+              <li><a href="#">User stats <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
+              <li class="divider"></li>
+              <li><a href="#">Messages <span class="badge pull-right"> 42 </span></a></li>
+              <li class="divider"></li>
+              <li><a href="#">Favourites Snippets <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
+              <li class="divider"></li>
+              <li><a href="#">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+                      </ul>
+                  </li>
+              </ul>
             </li>
-
-          </ul>
-        </li>
 
 
         <li class="btn-trial"><%= link_to 'Sign out', '/users/sign_out', :method => :delete %></li>
@@ -82,7 +105,6 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#feature">Features</a></li>
         <li><%= link_to "Browse"%></li>
         <li><a href="#organisations">About Us</a></li>
         <li><%= link_to "Log In",new_user_session_path%></li>
@@ -93,7 +115,6 @@
   </nav>
   <!--/ Navigation bar-->
 
-
-            <% end %>
+<% end %>
 
 </header>
