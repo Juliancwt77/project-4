@@ -5,27 +5,29 @@
       <div class="section-heading">
         <h2>Create Job Profile</h2>
 
+        <p>When you submit a proposal, clients review your profile to decide if your skills and experience match what they are looking for. It's time to create a profile with the jobs you want in mind. This is your opportunity to market your freelance business to clients.</p>
+
       </div>
     </div>
   </div>
 
   <div class="heading col-lg-12">
-    <hr class="marginbot-50">
   </div>
+
 
 
   <div class="row">
     <div class="col-md-9 personal-info">
         <!-- form for -->
-                <%= form_for @new_property do |f| %>
+                <%= form_for @new_candidate do |f| %>
 
-                <% if @new_property.errors.any? %>
+                <% if @new_candidate.errors.any? %>
                 <div id="error_explanation">
-                    <h2><%= pluralize(@new_property.errors.count, "error") %>
-                        prohibited this property from being saved:</h2>
+                    <h2><%= pluralize(@new_candidate.errors.count, "error") %>
+                        prohibited this profile from being saved:</h2>
 
                     <ul>
-                        <% @new_property.errors.full_messages.each do |message| %>
+                        <% @new_candidate.errors.full_messages.each do |message| %>
                         <li><%= message %></li>
                         <% end %>
                     </ul>
@@ -36,9 +38,9 @@
 
                 <!-- Text input-->
                 <div class="form-group">
-                    <%= f.label :'Property Name' , class:"col-lg-3 control-label" %>
+                    <%= f.label :'Title' , class:"col-lg-3 control-label" %>
                     <div class="col-md-8">
-                        <%= f.text_field :name, autofocus: true, class: "form-control" , placeholder:"Property Name" %>
+                        <%= f.text_field :title, autofocus: true, class: "form-control" , placeholder:"Brief Description of your profile e.g. Full Stack Developer" %>
                         <br/>
                     </div>
                 </div>
@@ -46,50 +48,13 @@
                 <!-- Text input-->
 
                 <div class="form-group">
-                    <%= f.label :'Property Type' , class:"col-lg-3 control-label" %>
+                    <%= f.label :'Progamming Language' , class:"col-lg-3 control-label" %>
                     <div class="col-md-8">
-                        <%= f.select :prop_type, ['Landed', 'Condominium'], class: "form-control"%>
+                        <%= f.select :language, ['Ruby', 'CSS', 'HTML'], class: "form-control"%>
                         <br/>
                     </div>
                 </div>
 
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-
-                <!-- Text input-->
-
-                <div class="form-group">
-                    <%= f.label :address , class:"col-lg-3 control-label" %>
-                    <div class="col-md-8">
-                        <%= f.text_field :address, autofocus: true, class: "form-control" , placeholder:"Address" %>
-                        <br/>
-                    </div>
-                </div>
-
-                <!-- Text input-->
-
-                <div class="form-group">
-                    <%= f.label :postal_code , class:"col-lg-3 control-label" %>
-                    <div class="col-md-8">
-                        <%= f.text_field :postal_code , autofocus: true, class: "form-control" , placeholder:"Postal Code" %>
-                        <br/>
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <%= f.label :tenure , class:"col-lg-3 control-label" %>
-                    <div class="col-md-8">
-                        <%= f.select :tenure,['Freehold', '999', '99'], autofocus: true, class: "form-control"%>
-                        <br/>
-                    </div>
-                </div>
-
-                <br>
-                <br>
                 <br>
                 <br>
                 <br>
@@ -99,47 +64,43 @@
                 <!-- Text input-->
 
                 <div class="form-group">
-                    <%= f.label :'Size (sqft)' , class:"col-lg-3 control-label"%>
-                    <div class="col-md-8">
-                        <%= f.text_field :size , autofocus: true, class: "form-control" , placeholder:"Size" %>
+                    <%= f.label :'Set Hourly Rate' , class:"col-lg-3 control-label" %>
+                    <div class="col-md-4">
+                        <%= f.text_field :rate, autofocus: true, class: "form-control" , placeholder:"Hourly Rate ie. $20/hr" %>
                         <br/>
                     </div>
                 </div>
 
-                <!-- Text input-->
-                <div class="form-group">
-                    <%= f.label :'Reserve Price' , class:"col-lg-3 control-label" %>
-                    <div class="col-md-8">
-                        <%= f.text_field :reserve_price, :value => number_with_delimiter(f.object.reserve_price), autofocus: true, class: "form-control" , placeholder:"Reserve Price" %>
-                        <br/>
-                    </div>
-                </div>
+
+              <br>
+              <br>
+
 
                 <!-- Text input-->
                 <div class="form-group">
                     <%= f.label :description , class:"col-lg-3 control-label" %>
                     <div class="col-md-8">
-                        <%= f.text_area :description , autofocus: true, class: "form-control" , placeholder:"Description" %>
+                        <%= f.text_area :description , autofocus: true, class: "form-control" , placeholder:"Description of your profile" %>
                         <br/>
                     </div>
                 </div>
 
                 <!-- Text input-->
 
-                <div class="form-group">
-                    <%= f.label :'Property Photographs' , class:"col-lg-3 control-label"%>
-                    <div class="col-md-8">
-                        <%= f.file_field :picture, autofocus: true %>
-                        <br/>
-                    </div>
-                </div>
+              <div class="form-group">
+                  <%= f.label :'Upload Personal Photo' , class:"col-lg-3 control-label"%>
+                  <div class="col-md-8">
+                      <%= f.file_field :photo, autofocus: true %>
+                      <br/>
+                  </div>
+              </div>
 
                 <p>
-                    <%= f.hidden_field :seller_id, value: current_user.id %>
+                    <%= f.hidden_field :candidate_id, value: current_user.id %>
                 </p>
 
                 <p>
-                    <%= f.hidden_field :listed, value: 0 %>
+                    <%= f.hidden_field :status, value: 0 %>
                 </p>
 
                 <div class="form-group">
@@ -150,7 +111,7 @@
                             <%= link_to "Cancel", :back, class: "btn btn-default" %>
 
                             <%= f.submit "Submit", Class: "btn btn-primary" %>
-
+                      
                         </div>
                     </div>
 
@@ -164,4 +125,6 @@
 </div>
     <!-- /.col-lg-12 -->
 </div>
+<br>
+<br>
 <!-- /.row -->
