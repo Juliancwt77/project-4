@@ -1,0 +1,256 @@
+<div class="container">
+
+  <div class="heading heading-contact">
+    <div class="col-lg-12">
+      <div class="section-heading">
+        <h2>Edit Job Profile</h2>
+
+        <p>When you submit a proposal, clients review your profile to decide if your skills and experience match what they are looking for. It's time to create a profile with the jobs you want in mind. This is your opportunity to market your freelance business to clients.</p>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="heading col-lg-12">
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-md-9 personal-info">
+        <!-- form for -->
+                <%= form_for @candidate do |f| %>
+
+                <% if @candidate.errors.any? %>
+                <div id="error_explanation">
+                    <h2><%= pluralize(@candidate.errors.count, "error") %>
+                        prohibited this profile from being saved:</h2>
+
+                    <ul>
+                        <% @candidate.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                        <% end %>
+                    </ul>
+                </div>
+                <% end %>
+
+                <form class="form-horizontal" role="form">
+
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <%= f.label :'Title' , class:"col-lg-3 control-label" %>
+                    <div class="col-md-8">
+                        <%= f.text_field :title, autofocus: true, class: "form-control" , placeholder:"Brief Description of your profile e.g. Full Stack Developer" %>
+                        <br/>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <!-- Text input-->
+
+                <div class="form-group">
+
+                  <%= f.label :'Progamming Language', class:"col-lg-3 control-label" %>
+                  <div class="col-md-8">
+
+                    <%= f.select :language, ['CSS', 'RUBY ON RAILS', 'HTML', 'JAVASCRIPT', 'PYTHON' ], class: "form-control"%>
+
+                      </div>
+                    </div>
+                    <!--
+                                      <div class="container">
+
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="items-collection">
+
+                                    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                        <div class="info-block block-info clearfix">
+                                            <div data-toggle="buttons" class="btn-group bizmoduleselect">
+                                                <label class="btn btn-default">
+                                                    <div class="itemcontent">
+                                                      <input type="checkbox" name="language[]" autocomplete="off" value="CSS">
+
+                                                      <h5>CSS</h5>
+
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                        <div class="info-block block-info clearfix">
+                                            <div data-toggle="buttons" class="btn-group itemcontent">
+                                                <label class="btn btn-default">
+                                                    <div class="itemcontent">
+                                                        <input type="checkbox" name="language[]" autocomplete="off" value="HTML5">
+
+                                                        <h5>HTML5</h5>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                        <div class="info-block block-info clearfix">
+                                            <div data-toggle="buttons" class="btn-group itemcontent">
+                                                <label class="btn btn-default">
+                                                    <div class="itemcontent">
+                                                        <input type="checkbox" name="language[]" autocomplete="off" value="Ruby on Rails">
+
+                                                        <h5>Ruby on Rails</h5>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                        <div class="info-block block-info clearfix">
+                                            <div data-toggle="buttons" class="btn-group itemcontent">
+                                                <label class="btn btn-default">
+                                                    <div class="itemcontent">
+                                                        <input type="checkbox" name="language[]" autocomplete="off" value="Python">
+
+                                                        <h5>Python</h5>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                        <div class="info-block block-info clearfix">
+                                            <div data-toggle="buttons" class="btn-group itemcontent">
+                                                <label class="btn btn-default">
+                                                    <div class="itemcontent">
+                                                        <input type="checkbox" name="language[]" autocomplete="off" value="Javascript">
+
+                                                        <h5>Javascript</h5>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                        <div class="info-block block-info clearfix">
+                                            <div data-toggle="buttons" class="btn-group itemcontent">
+                                                <label class="btn btn-default">
+                                                    <div class="itemcontent">
+                                                        <input type="checkbox" name="language[]" autocomplete="off" value="PHP">
+                                                        <h5>PHP</h5>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                        <div class="info-block block-info clearfix">
+                                            <div data-toggle="buttons" class="btn-group itemcontent">
+                                                <label class="btn btn-default">
+                                                    <div class="itemcontent">
+                                                        <input type="checkbox" name="language[]" autocomplete="off" value="Java">
+
+                                                        <h5>Java</h5>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                        <div class="info-block block-info clearfix">
+                                            <div data-toggle="buttons" class="btn-group itemcontent">
+                                                <label class="btn btn-default">
+                                                    <div class="itemcontent">
+                                                        <input type="checkbox" name="language[]" autocomplete="off" value="Node">
+
+                                                        <h5>Node</h5>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+
+
+
+
+
+                <br>
+                <br>
+                <br>
+
+                <!-- Text input-->
+
+                <div class="form-group">
+
+                    <%= f.label :'Set Hourly Rate' , class:"col-lg-3 control-label" %>
+
+                    <div class="col-md-4">
+
+                        <%= f.text_field :rate, autofocus: true, class: "form-control" , placeholder:"Hourly Rate ie. $20/hr" %>
+                        <br/>
+                    </div>
+                </div>
+
+
+              <br>
+              <br>
+
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <%= f.label :description , class:"col-lg-3 control-label" %>
+                    <div class="col-md-8">
+                        <%= f.text_area :description , autofocus: true, class: "form-control" , placeholder:"Description of your profile" %>
+                        <br/>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+
+              <div class="form-group">
+                  <%= f.label :'Upload Personal Photo' , class:"col-lg-3 control-label"%>
+                  <div class="col-md-8">
+                      <%= f.file_field :photo, autofocus: true %>
+                      <br/>
+                  </div>
+              </div>
+
+                <p>
+                    <%= f.hidden_field :candidate_id, value: current_user.id %>
+                </p>
+
+                <p>
+                    <%= f.hidden_field :status, value: 0 %>
+                </p>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                        <div class="pull-right">
+
+                            <%= link_to "Cancel", :back, class: "btn btn-default" %>
+
+                            <%= f.submit "Submit", Class: "btn btn-primary" %>
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+
+        </form>
+        <% end %>
+    </div>
+
+</div>
+    <!-- /.col-lg-12 -->
+</div>
+<br>
+<br>
+<!-- /.row -->
