@@ -36,6 +36,7 @@
 
                 <form class="form-horizontal" role="form">
 
+
                 <!-- Text input-->
                 <div class="form-group">
                     <%= f.label :'Title' , class:"col-lg-3 control-label" %>
@@ -44,19 +45,140 @@
                         <br/>
                     </div>
                 </div>
-
+                <br>
+                <br>
                 <!-- Text input-->
 
                 <div class="form-group">
-                    <%= f.label :'Progamming Language' , class:"col-lg-3 control-label" %>
-                    <div class="col-md-8">
-                        <%= f.select :language, ['Ruby', 'CSS', 'HTML'], class: "form-control"%>
-                        <br/>
-                    </div>
+
+                  <%= f.label :'Progamming Language', class:"col-lg-3 control-label" %>
+                  <div class="col-md-8">
+
+                    <%= f.select :language, ['CSS', 'RUBY ON RAILS', 'HTML', 'JAVASCRIPT', 'PYTHON' ], class: "form-control"%>
+
+
+                    <!--
+                                      <div class="container">
+
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="items-collection">
+
+                                    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                        <div class="info-block block-info clearfix">
+                                            <div data-toggle="buttons" class="btn-group bizmoduleselect">
+                                                <label class="btn btn-default">
+                                                    <div class="itemcontent">
+                                                      <input type="checkbox" name="language[]" autocomplete="off" value="CSS">
+
+                                                      <h5>CSS</h5>
+
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                        <div class="info-block block-info clearfix">
+                                            <div data-toggle="buttons" class="btn-group itemcontent">
+                                                <label class="btn btn-default">
+                                                    <div class="itemcontent">
+                                                        <input type="checkbox" name="language[]" autocomplete="off" value="HTML5">
+
+                                                        <h5>HTML5</h5>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                        <div class="info-block block-info clearfix">
+                                            <div data-toggle="buttons" class="btn-group itemcontent">
+                                                <label class="btn btn-default">
+                                                    <div class="itemcontent">
+                                                        <input type="checkbox" name="language[]" autocomplete="off" value="Ruby on Rails">
+
+                                                        <h5>Ruby on Rails</h5>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                        <div class="info-block block-info clearfix">
+                                            <div data-toggle="buttons" class="btn-group itemcontent">
+                                                <label class="btn btn-default">
+                                                    <div class="itemcontent">
+                                                        <input type="checkbox" name="language[]" autocomplete="off" value="Python">
+
+                                                        <h5>Python</h5>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                        <div class="info-block block-info clearfix">
+                                            <div data-toggle="buttons" class="btn-group itemcontent">
+                                                <label class="btn btn-default">
+                                                    <div class="itemcontent">
+                                                        <input type="checkbox" name="language[]" autocomplete="off" value="Javascript">
+
+                                                        <h5>Javascript</h5>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                        <div class="info-block block-info clearfix">
+                                            <div data-toggle="buttons" class="btn-group itemcontent">
+                                                <label class="btn btn-default">
+                                                    <div class="itemcontent">
+                                                        <input type="checkbox" name="language[]" autocomplete="off" value="PHP">
+                                                        <h5>PHP</h5>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                        <div class="info-block block-info clearfix">
+                                            <div data-toggle="buttons" class="btn-group itemcontent">
+                                                <label class="btn btn-default">
+                                                    <div class="itemcontent">
+                                                        <input type="checkbox" name="language[]" autocomplete="off" value="Java">
+
+                                                        <h5>Java</h5>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                        <div class="info-block block-info clearfix">
+                                            <div data-toggle="buttons" class="btn-group itemcontent">
+                                                <label class="btn btn-default">
+                                                    <div class="itemcontent">
+                                                        <input type="checkbox" name="language[]" autocomplete="off" value="Node">
+
+                                                        <h5>Node</h5>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+
+
                 </div>
 
-                <br>
-                <br>
+
                 <br>
                 <br>
                 <br>
@@ -64,8 +186,11 @@
                 <!-- Text input-->
 
                 <div class="form-group">
+
                     <%= f.label :'Set Hourly Rate' , class:"col-lg-3 control-label" %>
+
                     <div class="col-md-4">
+
                         <%= f.text_field :rate, autofocus: true, class: "form-control" , placeholder:"Hourly Rate ie. $20/hr" %>
                         <br/>
                     </div>
@@ -111,7 +236,7 @@
                             <%= link_to "Cancel", :back, class: "btn btn-default" %>
 
                             <%= f.submit "Submit", Class: "btn btn-primary" %>
-                      
+
                         </div>
                     </div>
 
