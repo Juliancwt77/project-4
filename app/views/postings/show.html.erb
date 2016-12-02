@@ -1,0 +1,66 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="heading heading-contact">
+      <div class="col-lg-12">
+        <div class="section-heading">
+          <h1>Detailed Postings</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <br>
+      <table class="table table-list-search">
+
+        <thead>
+          <tr>
+            <th>Photo</th>
+            <th>Username</th>
+            <th>Title</th>
+            <th>Languages</th>
+            <th>Description</th>
+            <th>Rate ($/hr)</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+              <% if @posting.cand_info.photo.present? %>
+
+                  <td class="tab-pane active" id="pic-1">
+                    <%= image_tag(posting.cand_info.photo_url, width: 150, height:125, class:'object-fit_cover') %>
+                  </td>
+
+              <% else %>
+
+                  <td class="tab-pane active" id="pic-1">
+                    <img src="http://larics.rasip.fer.hr/wp-content/uploads/2016/04/default-placeholder.png" alt="" width="150" height="125" class="object-fit_cover"/>
+                  </td>
+
+              <% end %>
+
+              <td> <%= @posting.cand_info.candidate.username %> </td>
+              <td> <%= @posting.cand_info.title %> </td>
+              <td> <%= @posting.cand_info.language %> </td>
+              <td> <%= @posting.cand_info.description %> </td>
+              <td> <%= @posting.cand_info.rate %> </td>
+              <td> TO BE INSERTED !!! </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
