@@ -43,13 +43,13 @@
                           <% if posting.cand_info.photo.present? %>
 
                               <div class="tab-pane active" id="pic-1">
-                                <%= image_tag(posting.cand_info.photo_url, width: 300, height:250, class:'object-fit_cover') %>
+                                <%= image_tag(posting.cand_info.photo_url, width: 300, height:250, class:'object-fit_cover', alt:'Picture') %>
                               </div>
 
                           <% else %>
 
                               <div class="tab-pane active" id="pic-1">
-                                <img src="http://larics.rasip.fer.hr/wp-content/uploads/2016/04/default-placeholder.png" alt="" width="300" height="250" class="object-fit_cover"/>
+                                <img src="http://larics.rasip.fer.hr/wp-content/uploads/2016/04/default-placeholder.png" alt="Picture" width="300" height="250" class="object-fit_cover"/>
                               </div>
 
                           <% end %>
