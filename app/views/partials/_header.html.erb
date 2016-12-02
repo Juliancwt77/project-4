@@ -63,12 +63,29 @@
                             <% end %>
                           </li>
 
-              <li class="divider"></li>
-              <li><%= link_to new_candidate_path, :class => "dropdowntext" do %>Your Job Profile
-                <!-- <span class="badge pull-right">5</span> --><span class="glyphicon glyphicon-list-alt pull-right"></span>
-                <% end %>
-              </li>
+            <% if current_user.user_type == "Freelancer" %>
 
+              <li class="divider"></li>
+
+              <% if current_user.candidate.present? %>
+
+              <li><%= link_to candidate_path id: current_user.candidate.id, :class => "dropdowntext" do %>Your Job Profile
+                <!-- <span class="badge pull-right">5</span> --><span class="glyphicon glyphicon-list-alt pull-right"></span>
+                </li>
+                <% end %>
+
+                <% else %>
+
+                <li><%= link_to new_candidate_path, :class => "dropdowntext" do %>Create Job Profile
+                  <!-- <span class="badge pull-right">5</span> --><span class="glyphicon glyphicon-list-alt pull-right"></span>
+                  </li>
+
+              <% end %>
+              <% end %>
+
+              <% else %>
+
+              <% end %>
 
               <li class="divider"></li>
               <li><a href="#">Messages <span class="badge pull-right"> 42 </span></a></li>
