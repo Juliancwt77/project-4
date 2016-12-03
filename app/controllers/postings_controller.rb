@@ -19,4 +19,32 @@ class PostingsController < ApplicationController
     end
   end
 
+  def new
+  @posting = Posting.new
+  @candiates=current_user.candidates
+  end
+
+  def create
+
+  @candiate = Candidate.find(params[:cand_info_id])
+  @new_posting = Posting.new()
+  @new_posting.cand_info_id = @candidate.id
+  @new_posting.save
+  @update_posting =
+  @candidate.status = 1
+  @candidate.save
+  @new_posting.errors.full_messages
+  redirect_to candidate_path
+
+      respond_to do |format|
+        if @new_posting.save
+          format.html { redirect_to candidate_path, notice: 'Your profile has been posted' }
+          format.json { render :show, status: :ok, location: @new_posting }
+        else
+          format.html { render :new }
+          format.json { render json: @new_posting.errors, status: :unprocessable_entity }
+        end
+      end
+  end
+
 end

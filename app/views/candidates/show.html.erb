@@ -70,10 +70,21 @@
 									<i class="fa fa-user"></i> Edit Profile
 									<% end %>
 							</div>
+
+
                 <div class="col-xs-12 col-sm-4 emphasis">
                     <h2><strong> 20,7K </strong></h2>
                     <p><small>Followers</small></p>
-                    <button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> Follow </button>
+										<!-- <%= link_to new_posting_path, class: "btn btn-success btn-block" do %>
+										<i class="fa fa-plus-circle"></i> Submit Posting
+										<% end %> -->
+
+
+										<%= link_to 'Submit Posting', posting_path, class: 'btn btn-danger btn-md glypicon glyphicon glyphicon-trash tip-top', title: 'Submit Posting', method: :post, data: { confirm: 'This will submit your posting. Are you sure?' } %>
+
+										<%= form_tag postings_path, method: :post do %>
+										<%= hidden_field_tag :cand_info_id, @candidate.id %>
+										<% end %>
                 </div>
                 <div class="col-xs-12 col-sm-4 emphasis">
                     <h2><strong>43</strong></h2>
