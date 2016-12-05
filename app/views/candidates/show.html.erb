@@ -71,33 +71,51 @@
 									<% end %>
 							</div>
 
-							<%= form_tag postings_path, method: :post do %>
-							<%= hidden_field_tag :candidate_id, current_user.candidate.id %></td>
 
-                <div class="col-xs-12 col-sm-4 emphasis">
+							<% if @candidate.status == 0 %>
+								<!-- <%= @candidate.status %>
+								<%= @candidate.id%> -->
+
+
+								<%= form_tag postings_path, method: :post do %>
+									<%= hidden_field_tag :candidate_id, current_user.candidate.id %></td>
+
+	                <div class="col-xs-12 col-sm-4 emphasis">
 
                     <h2><strong> 20,7K </strong></h2>
                     <p><small>Followers</small></p>
 
-
-
 												<%= button_tag(type: 'submit', title: 'Submit Posting', class: "btn btn-success btn-block") do %><i class="fa fa-plus-circle"></i> Submit Posting
 												<% end %>
+                	</div>
+								<% end %>
 
 
 
-                </div>
-                <div class="col-xs-12 col-sm-4 emphasis">
+							<% else %>
+                	<div class="col-xs-12 col-sm-4 emphasis">
                     <h2><strong>43</strong></h2>
                     <p><small>Snippets</small></p>
                     <div class="btn-group dropup btn-block">
+<!--
 
-												<%= link_to '', posting_path, class: 'btn btn-danger', method: :delete, data: { confirm: 'This will delete your property. Are you sure?' }%><i class="fa fa-plus-circle"></i> Remove Posting
+											<%= @candidate.status %>
+											<%= @candidate.id %>
+											<%= current_user.candidate.posting.id %> -->
 
+
+												<!-- <%= link_to '', posting_path, class: 'btn btn-danger', method: :delete, data: { confirm: 'This will delete your property. Are you sure?' }%><i class="fa fa-plus-circle"></i> Remove Posting -->
+												<%= form_tag posting_path, method: :delete do %>
+												<%= hidden_field_tag :candidate_id, current_user.candidate.posting.id %></td>
+
+												<%= button_tag(type: 'submit', title: 'Submit Posting', class: "btn btn-success btn-block") do %><i class="fa fa-plus-circle"></i> Delete Posting
+												<% end %>
+												<% end %>
 
                     </div>
+
                 </div>
-								<% end %>
+							<% end %>
             </div>
 
     	 </div>
