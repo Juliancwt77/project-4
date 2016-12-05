@@ -49,12 +49,16 @@ class PostingsController < ApplicationController
   end
 
   def destroy
-    @candidate = Candidate.find(params[:candidate_id])
-    @posting = Posting.find(params[:id])
-    @posting.candidate_id = @candidate.id
+    @candidate = Candidate.find(params[:id])
+    @posting= Posting.find(params[:candidate_id])
+    # @posting = Posting.find(params[:id])
+  # @posting.candidate_id = @candidate.id
+
+    @candidate.status = 0
+    @candidate.save
     @posting.destroy
     respond_to do |format|
-      format.html { redirect_to candidate_url, notice: 'You have successfully deleted your property' }
+      format.html { redirect_to candidate_url, notice: 'You have successfully deleted your posting' }
       format.json { head :no_content }
   end
 
