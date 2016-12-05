@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
 
-
-devise_for :users, :controllers => { :registrations => 'users/registrations'}
+    devise_for :users, :controllers => { :registrations => 'users/registrations'}
 
     root 'home#index'
 
     get 'about', to: 'home#about'
 
     get 'contact', to: 'home#contact'
+
+    get 'job_offers_candidate', to: 'recruits#job_offers_candidate'
+
+    get 'jobs_offered_hirer', to: 'recruits#jobs_offered_hirer'
 
     resources :recruits
 

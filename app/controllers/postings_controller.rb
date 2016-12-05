@@ -5,8 +5,8 @@ class PostingsController < ApplicationController
     @postings = Posting.all.reverse_order
 
     respond_to do |format|
-    format.html
-    format.json { render json: @postings }
+      format.html
+      format.json { render json: @postings }
     end
   end
 
@@ -14,8 +14,8 @@ class PostingsController < ApplicationController
     @posting = Posting.find(params[:id])
 
     respond_to do |format|
-    format.html
-    format.json { render json: @posting }
+      format.html
+      format.json { render json: @posting }
     end
   end
 

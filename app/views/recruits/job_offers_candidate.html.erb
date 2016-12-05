@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+
+    <div class="heading heading-contact">
+      <div class="col-lg-12">
+        <div class="section-heading">
+          <h2>My Job Offers</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="heading col-lg-12">
+      <h4>Title: <%= @current_user_cand_info.title %> </h4>
+      <h4>Rate ($/hr): <%= @current_user_cand_info.rate %> </h4>
+      <h4>Date Listed: <%= @current_user_cand_info.updated_at %> </h4>
+    </div>
+
+    <div class="col-md-12">
+      <table class="table table-list-search">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Company Name</th>
+            <th>Username</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Scope</th>
+            <th>Message</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+              <% @current_user_cand_info.posting.recruits.each do |recruits| %>
+                <td> <%= recruits.scope %> </td>
+              <% end %>
+
+
+         <tr>
+        <tbody>
+
+
+
+
+      </table>
+    </div>
+  </div>
+</div>
