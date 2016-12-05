@@ -69,18 +69,20 @@
 
               <% if current_user.candidate.present? %>
 
-              <li><%= link_to candidate_path id: current_user.candidate.id, :class => "dropdowntext" do %>Your Job Profile
+              <li><%= link_to candidate_path, :class => "dropdowntext" do %>Your Job Profile
                 <!-- <span class="badge pull-right">5</span> --><span class="glyphicon glyphicon-list-alt pull-right"></span>
-                </li>
                 <% end %>
+                </li>
+
 
                 <% else %>
 
                 <li><%= link_to new_candidate_path, :class => "dropdowntext" do %>Create Job Profile
                   <!-- <span class="badge pull-right">5</span> --><span class="glyphicon glyphicon-list-alt pull-right"></span>
+                  <% end %>
                   </li>
 
-              <% end %>
+
               <% end %>
 
               <% else %>

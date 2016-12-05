@@ -77,6 +77,10 @@ end
 
   private
 
+  def posted_params
+    params.permit(:status)
+  end
+
 
   def candidate_params
   params.require(:candidate).permit(:title,:language, :description, :rate, :status, :photo, :candidate_id)

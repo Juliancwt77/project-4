@@ -75,15 +75,15 @@
                 <div class="col-xs-12 col-sm-4 emphasis">
                     <h2><strong> 20,7K </strong></h2>
                     <p><small>Followers</small></p>
-										<!-- <%= link_to new_posting_path, class: "btn btn-success btn-block" do %>
-										<i class="fa fa-plus-circle"></i> Submit Posting
-										<% end %> -->
 
 
-										<%= link_to 'Submit Posting', posting_path, class: 'btn btn-danger btn-md glypicon glyphicon glyphicon-trash tip-top', title: 'Submit Posting', method: :post, data: { confirm: 'This will submit your posting. Are you sure?' } %>
 
 										<%= form_tag postings_path, method: :post do %>
-										<%= hidden_field_tag :cand_info_id, @candidate.id %>
+										<%= hidden_field_tag :cand_info_id, current_user.candidate.id %></td>
+
+
+												<%= button_tag(type: 'submit', title: 'Submit Posting', class: "btn btn-success btn-block") do %><i class="fa fa-plus-circle"></i> Submit Posting
+												<% end %>
 										<% end %>
                 </div>
                 <div class="col-xs-12 col-sm-4 emphasis">
