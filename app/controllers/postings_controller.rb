@@ -1,8 +1,8 @@
 class PostingsController < ApplicationController
 
   def index
-    # @postings = Candidate.where('status > ?', 0).reverse_order
     @postings = Posting.all.reverse_order
+    # @postings = Candidate.where('status > ?', 0).reverse_order
 
     respond_to do |format|
       format.html
@@ -26,9 +26,9 @@ class PostingsController < ApplicationController
 
   def create
 
-  @candidate = Candidate.find(params[:cand_info_id])
+  @candidate = Candidate.find(params[:candidate_id])
   @new_posting = Posting.new()
-  @new_posting.cand_info_id = @candidate.id
+  @new_posting.candidate_id = @candidate.id
   @new_posting.save
   @update_posting =
   @candidate.status = 1
@@ -49,9 +49,9 @@ class PostingsController < ApplicationController
   end
 
   def destroy
-    @candidate = Candidate.find(params[:cand_info_id])
+    @candidate = Candidate.find(params[:candidate_id])
     @posting = Posting.find(params[:id])
-    @posting.cand_info_id = @candidate.id
+    @posting.candidate_id = @candidate.id
     @posting.destroy
     respond_to do |format|
       format.html { redirect_to candidate_url, notice: 'You have successfully deleted your property' }

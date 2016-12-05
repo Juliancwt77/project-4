@@ -1,7 +1,7 @@
 class RecruitsController < ApplicationController
 
   def job_offers_candidate
-    @current_user_cand_info = current_user.candidate
+    @current_user_individual_info = current_user.candidate
     # @user_posting = current_user.cand_posting
 
     respond_to do |format|

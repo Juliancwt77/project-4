@@ -222,7 +222,7 @@
               </div>
 
                 <p>
-                    <%= f.hidden_field :candidate_id, value: current_user.id %>
+                    <%= f.hidden_field :individual_id, value: current_user.id %>
                 </p>
 
                 <p>
@@ -237,7 +237,7 @@
                             <%= link_to "Cancel", :back, class: "btn btn-default" %>
 
                             <%= f.submit "Submit", Class: "btn btn-primary" %>
-                            
+
                         </div>
                     </div>
 

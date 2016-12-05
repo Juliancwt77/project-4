@@ -10,9 +10,9 @@
     </div>
 
     <div class="heading col-lg-12">
-      <h4>Title: <%= @current_user_cand_info.title %> </h4>
-      <h4>Rate ($/hr): <%= @current_user_cand_info.rate %> </h4>
-      <h4>Date Listed: <%= @current_user_cand_info.updated_at %> </h4>
+      <h4>Title: <%= @current_user_individual_info.title %> </h4>
+      <h4>Rate ($/hr): <%= @current_user_individual_info.rate %> </h4>
+      <h4>Date Listed: <%= @current_user_individual_info.updated_at %> </h4>
     </div>
 
     <div class="col-md-12">
@@ -32,8 +32,8 @@
 
         <tbody>
           <tr>
-              <% @current_user_cand_info.posting.recruits.each do |recruits| %>
-                <td> <%= recruits.scope %> </td>
+              <% @current_user_individual_info.posting.recruits.each do |offers| %>
+                <td> <%= offers.scope %> </td>
               <% end %>
 
 

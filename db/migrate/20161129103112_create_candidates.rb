@@ -7,7 +7,7 @@ class CreateCandidates < ActiveRecord::Migration[5.0]
       t.integer :rate
       t.integer :status
       t.string :photo
-      t.integer :candidate_id
+      t.integer :individual_id
 
       t.timestamps
     end

@@ -19,13 +19,13 @@ ActiveRecord::Schema.define(version: 20161130013401) do
     t.integer  "rate"
     t.integer  "status"
     t.string   "photo"
-    t.integer  "candidate_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "individual_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "postings", force: :cascade do |t|
-    t.integer  "cand_info_id"
+    t.integer  "candidate_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
