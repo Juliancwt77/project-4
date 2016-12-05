@@ -38,7 +38,7 @@ class PostingsController < ApplicationController
 
   respond_to do |format|
     if @new_posting.save
-      format.html { redirect_to candidate_path id: @candidate.id }
+      format.html { redirect_to candidate_path id: @candidate.id}
       format.json { render :show, status: :ok, location: @new_posting }
     else
       format.html { render :new }
