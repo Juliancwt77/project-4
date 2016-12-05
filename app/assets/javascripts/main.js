@@ -14,6 +14,10 @@ setTimeout(function () {
 
 })
 
+// mulitple buttons
+
+
+
 (function ($) {
 
     // Navigation scrolls

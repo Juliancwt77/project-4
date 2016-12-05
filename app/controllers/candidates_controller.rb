@@ -45,8 +45,41 @@ class CandidatesController < ApplicationController
       end
   end
 
+  # GET /properties/1/edit
+def edit
+  @candidate = Candidate.find(params[:id])
+  if user_signed_in?
+    unless current_user.id == @candidate.candidate_id
+    redirect_to root_path, :alert => "You can only edit your profile"
+    end
+  else
+    redirect_to new_user_session_path, :alert => "Please log in to edit"
+  end
+  rescue ActiveRecord::RecordNotFound
+  redirect_to root_url, :alert => "Record not found."
+end
+
+# POST /properties
+# POST /properties.json
+def update
+  @candidate=Candidate.find(params[:id])
+  respond_to do |format|
+    if @candidate.update(candidate_params)
+      format.html { redirect_to candidate_path id: @candidate.id, notice: 'Your profile was successfully updated.' }
+      format.json { render :show, status: :ok, location: @candidate }
+    else
+      format.html { render :edit }
+      format.json { render json: @candidate.errors, status: :unprocessable_entity }
+    end
+  end
+end
+
 
   private
+
+  def posted_params
+    params.permit(:status)
+  end
 
 
   def candidate_params
