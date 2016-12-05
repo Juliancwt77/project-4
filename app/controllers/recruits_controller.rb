@@ -1,22 +1,21 @@
 class RecruitsController < ApplicationController
 
   def job_offers_candidate
-    @current_user_individual_info = current_user.candidate
-    # @user_posting = current_user.cand_posting
+    @current_candidate_individual_info = current_user.candidate
 
     respond_to do |format|
       format.html
-      format.json { render json: @posting }
+      format.json { render json: @current_candidate_individual_info }
     end
   end
 
 
-  def jobs_offered_hirer
-    @offers = current_user.recruits
+  def jobs_offered_company
+    @offers_sent = current_user.recruits
 
     respond_to do |format|
       format.html
-      format.json { render json: @offers }
+      format.json { render json: @offers_sent }
     end
   end
 

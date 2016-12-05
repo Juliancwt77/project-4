@@ -15,10 +15,12 @@
 #
 # User.create! name: 'xx', user_type: 'Hirer', email: 'xx@xx.com', password: 'qwerty', contact_number: 123456, company_name: 'xx company'
 #
-# Candidate.create! title: 'web developer', language: 'html', description: 'I am very interested in becoming a web developer', rate: 50, status: 1, candidate_id: 1
+# Candidate.create! title: 'web developer', language: 'html', description: 'I am very interested in becoming a web developer', rate: 50, status: 1, individual_id: 1
 #
-# Posting.create! cand_info_id: 1
+# Posting.create! candidate_id: 1
 #
-# Recruit.create! status: 0, scope: 'to do everything', start_date: '2016-12-02 07:38:03.370996', end_date: '2016-12-02 07:38:03.370996', posting_id: 1, company_id: 1
+# Recruit.create! status: 0, scope: 'to do everything html', start_date: '2016-12-02 07:38:03.370996', end_date: '2016-12-02 07:38:03.370996', posting_id: 1, company_id: 3
 #
-# Recruit.create! status: 0, scope: 'to do all in the world', start_date: '2016-12-02 07:38:03.370996', end_date: '2016-12-02 07:38:03.370996', posting_id: 1, company_id: 2
+# Recruit.create! status: 0, scope: 'to do frontend frameworks like React as well', start_date: '2016-12-02 07:38:03.370996', end_date: '2016-12-02 07:38:03.370996', posting_id: 1, company_id: 3
+#
+# Recruit.create! status: 0, scope: 'to do all the html links', start_date: '2016-12-02 07:38:03.370996', end_date: '2016-12-02 07:38:03.370996', posting_id: 1, company_id: 4

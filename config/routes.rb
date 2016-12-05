@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
     get 'job_offers_candidate', to: 'recruits#job_offers_candidate'
 
-    get 'jobs_offered_hirer', to: 'recruits#jobs_offered_hirer'
+    get 'jobs_offered_company', to: 'recruits#jobs_offered_company'
 
     resources :recruits
 

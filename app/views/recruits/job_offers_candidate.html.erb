@@ -10,9 +10,9 @@
     </div>
 
     <div class="heading col-lg-12">
-      <h4>Title: <%= @current_user_individual_info.title %> </h4>
-      <h4>Rate ($/hr): <%= @current_user_individual_info.rate %> </h4>
-      <h4>Date Listed: <%= @current_user_individual_info.updated_at %> </h4>
+      <h4>Title: <%= @current_candidate_individual_info.title %> </h4>
+      <h4>Rate ($/hr): <%= @current_candidate_individual_info.rate %> </h4>
+      <h4>Date Listed: <%= @current_candidate_individual_info.updated_at %> </h4>
     </div>
 
     <div class="col-md-12">
@@ -21,7 +21,7 @@
           <tr>
             <th>Date</th>
             <th>Company Name</th>
-            <th>Username</th>
+            <th>Contact Name</th>
             <th>Start Date</th>
             <th>End Date</th>
             <th>Scope</th>
@@ -31,17 +31,19 @@
         </thead>
 
         <tbody>
-          <tr>
-              <% @current_user_individual_info.posting.recruits.each do |offers| %>
-                <td> <%= offers.scope %> </td>
-              <% end %>
-
-
-         <tr>
+          <% @current_candidate_individual_info.posting.recruits.reverse_order.each do |offer_received| %>
+              <tr>
+                  <td> <%= offer_received.updated_at %> </td>
+                  <td> <%= offer_received.company.company_name %> </td>
+                  <td> <%= offer_received.company.username %> </td>
+                  <td> <%= offer_received.start_date %> </td>
+                  <td> <%= offer_received.end_date %> </td>
+                  <td> <%= offer_received.scope %> </td>
+                  <td> Message here!!! </td>
+                  <td> Action here!!! </td>
+              <tr>
+          <% end %>
         <tbody>
-
-
-
 
       </table>
     </div>
