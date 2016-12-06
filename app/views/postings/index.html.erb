@@ -40,10 +40,10 @@
 
                           <div class="preview-pic tab-content">
 
-                          <% if posting.candidate.photo.present? %>
+                          <% if posting.photo.present? %>
 
                               <div class="tab-pane active" id="pic-1">
-                                <%= image_tag(posting.candidate.photo_url, width: 300, height:250, class:'object-fit_cover', alt:'Picture') %>
+                                <%= image_tag(posting.photo_url, width: 300, height:250, class:'object-fit_cover', alt:'Picture') %>
                               </div>
 
                           <% else %>
@@ -60,22 +60,22 @@
                         <div class="details col-md-6">
                           <h2 class="product-title">
                             <% if user_signed_in? %>
-                                <%= link_to posting.candidate.individual.username, posting_path(posting) %>
+                                <%= link_to posting.individual.username, posting_path(posting) %>
                             <% else %>
-                              <%= posting.candidate.individual.username %>
+                              <%= posting.individual.username %>
                             <% end %>
                           </h2>
                         </div>
 
                         <div class="details col-md-6">
                           <h2 class="product-title">
-                            <%= posting.candidate.title %>
+                            <%= posting.title %>
                           </h2>
                         </div>
 
                         <div class="details col-md-6">
                           <h2 class="product-title">
-                            <%= posting.candidate.language %>
+                            <%= posting.language %>
                           </h2>
                         </div>
 

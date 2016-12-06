@@ -21,34 +21,34 @@
       <table class="table table-list-search">
         <thead>
           <tr>
-            <th>Date Sent</th>
+            <th>Date Offer Sent</th>
             <th>Username</th>
             <th>Title</th>
             <th>Skills</th>
             <th>Rate</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th>Scope</th>
+            <th>Job Start Date</th>
+            <th>Job End Date</th>
+            <th>Job Scope</th>
             <th>Message</th>
             <th>Status/Action</th>
           </tr>
         </thead>
 
         <tbody>
-          <% @offers_sent.reverse_order.each do |offer_sent| %>
-              <tr>
-                  <td> <%= offer_sent.updated_at %> </td>
-                  <td> <%= offer_sent.posting.candidate.individual.username %> </td>
-                  <td> <%= offer_sent.posting.candidate.title %> </td>
-                  <td> <%= offer_sent.posting.candidate.language %> </td>
-                  <td> <%= offer_sent.posting.candidate.rate %> </td>
-                  <td> <%= offer_sent.start_date %> </td>
-                  <td> <%= offer_sent.end_date %> </td>
-                  <td> <%= offer_sent.scope %> </td>
-                  <td> Message Here!!! </td>
-                  <td> Action Here!!! </td>
-              <tr>
-          <% end %>
+            <% @offers_sent.reverse_order.each do |offer_sent| %>
+                <tr>
+                    <td> <%= offer_sent.updated_at %> </td>
+                    <td> <%= offer_sent.posting.candidate.individual.username %> </td>
+                    <td> <%= offer_sent.posting.candidate.title %> </td>
+                    <td> <%= offer_sent.posting.candidate.language %> </td>
+                    <td> <%= offer_sent.posting.candidate.rate %> </td>
+                    <td> <%= offer_sent.start_date %> </td>
+                    <td> <%= offer_sent.end_date %> </td>
+                    <td> <%= offer_sent.scope %> </td>
+                    <td> Message Here!!! </td>
+                    <td> Action Here!!! </td>
+                <tr>
+            <% end %>
         <tbody>
 
       </table>
