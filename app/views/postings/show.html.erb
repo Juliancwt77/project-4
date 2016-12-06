@@ -69,16 +69,26 @@
                     <button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> Follow </button> -->
                 </div>
 
-							  <div class="col-xs-12 col-sm-4 emphasis">
-                    <h2><strong>   </strong></h2>
-                    <p><small>   </small></p>
-                    <button class="btn btn-info btn-block"><span class="fa fa-user"></span> View Profile </button>
 
+								<% if current_user.user_type == 'Hirer' %>
 
+									  <div class="col-xs-12 col-sm-4 emphasis">
+		                    <h2><strong>   </strong></h2>
+		                    <p><small>   </small></p>
+		                    <!-- <button class="btn btn-info btn-block"><span class="fa fa-user"></span> Offer Job </button> -->
 
+												<%= form_tag new_recruit_path, method: :get do %>
+													<%= hidden_field_tag :posting_id, @posting.id %></td>
 
+													<%= button_tag(type: 'submit', class: "btn btn-info btn-block") do %>
+													<i class="fa fa-user"></i> Offer Job
+													<% end %>
+				                	</div>
+												<% end %>
 
-                </div>
+		                </div>
+								<% end %>
+
 
 								<div class="col-xs-12 col-sm-4 emphasis">
                     <h2><strong>   </strong></h2>

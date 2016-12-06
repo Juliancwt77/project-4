@@ -9,15 +9,10 @@
       </div>
     </div>
 
-    <div class="heading col-lg-12">
-
-
-
-
-
-    </div>
-
     <div class="col-md-12">
+
+      <% if @offers_sent.present? %>
+
       <table class="table table-list-search">
         <thead>
           <tr>
@@ -46,12 +41,24 @@
                     <td> <%= offer_sent.end_date %> </td>
                     <td> <%= offer_sent.scope %> </td>
                     <td> Message Here!!! </td>
-                    <td> Action Here!!! </td>
+                    <td> 
+
+
+
+
+
+
+
+                    </td>
                 <tr>
             <% end %>
         <tbody>
-
       </table>
+
+      <% else %>
+        <h4>You have not made any job offers. </h4>
+      <% end %>
+
     </div>
   </div>
 </div>
