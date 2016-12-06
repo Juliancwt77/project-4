@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
     get 'jobs_offered_company', to: 'recruits#jobs_offered_company'
 
+    get 'candidate_accept_offer', to: 'recruits#job_offers_candidate'
+
     resources :recruits
 
     resources :candidates
