@@ -14,9 +14,9 @@
           <% if @current_candidate_individual_info.present? %>
 
 
-          <% if @current_candidate_individual_info.status == 0 %>
+          <% if @current_candidate_individual_info.status == 0 && !@current_candidate_individual_info.posting.recruits.exists? %>
           <div class="heading col-lg-12">
-                  <h4>You have not posted your job, pls check your job profile.</h4>
+                  <h4>You have not posted your job profile, pls check your job profile.</h4>
           </div>
           <% elsif @current_candidate_individual_info.posting.recruits.exists? %>
 
@@ -52,21 +52,19 @@
                       <td> <%= offer_received.end_date.in_time_zone("Singapore") %> </td>
                       <td> <%= offer_received.scope %> </td>
                       <td> Message here!!! </td>
-                      <td> <%= @current_candidate_individual_info.posting.recruit_ids %>
-              <% end %>
 
 
-              <% @current_candidate_individual_info.posting.recruits.reverse_order.each do |offer| %>
 
-                <% if offer.status == 0 %>
+
+                <% if offer_received.status == 0 %>
 
                       <td>
 
 
-                        <%= offer.id %>
+                        <%= offer_received.id %>
 
-                        <%= form_tag candidate_accept_offer_path, method: :get do %>
-                        <%= hidden_field_tag :id, offer.id %>
+                        <%= form_tag candidate_accept_offer_path, method: :patch do %>
+                        <%= hidden_field_tag :id, offer_received.id %>
 
                         <%= button_tag(type: 'submit', class:"btn btn-success btn-md tip-right", title: 'Accept Offer') do %>
                         <span class="glyphicon glyphicon-send"></span>
@@ -74,7 +72,6 @@
                         <% end %>
 
                       </td>
-
 
                   <else>
 
