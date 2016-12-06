@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20161130013401) do
     t.integer  "completion"
     t.string   "scope"
     t.integer  "rating"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date     "start_date"
+    t.date     "end_date"
     t.integer  "posting_id"
     t.integer  "company_id"
     t.datetime "created_at", null: false

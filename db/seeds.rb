@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# 
+
 # User.create! name: 'qq', user_type: 'Freelancer', email: 'qq@qq.com', password: 'qwerty', contact_number: 123456, username: 'qq'
 #
 # User.create! name: 'aa', user_type: 'Freelancer', email: 'aa@aa.com', password: 'qwerty', contact_number: 123456, username: 'aa'
@@ -28,9 +28,9 @@
 # Posting.create! candidate_id: 1
 #
 # Posting.create! candidate_id: 2
-
-Recruit.create! status: 0, scope: 'to do everything html', start_date: '2016-12-02 07:38:03.370996', end_date: '2016-12-02 07:38:03.370996', posting_id: 1, company_id: 3
-
-Recruit.create! status: 0, scope: 'to do frontend frameworks like React as well', start_date: '2016-12-02 07:38:03.370996', end_date: '2016-12-02 07:38:03.370996', posting_id: 1, company_id: 3
-
-Recruit.create! status: 0, scope: 'to do all the html links', start_date: '2016-12-02 07:38:03.370996', end_date: '2016-12-02 07:38:03.370996', posting_id: 1, company_id: 4
+#
+# Recruit.create! status: 0, scope: 'to do everything html', start_date: '2016-12-02 07:38:03.370996', end_date: '2016-12-02 07:38:03.370996', posting_id: 1, company_id: 3
+#
+# Recruit.create! status: 0, scope: 'to do frontend frameworks like React as well', start_date: '2016-12-02 07:38:03.370996', end_date: '2016-12-02 07:38:03.370996', posting_id: 1, company_id: 3
+#
+# Recruit.create! status: 0, scope: 'to do all the html links', start_date: '2016-12-02 07:38:03.370996', end_date: '2016-12-02 07:38:03.370996', posting_id: 1, company_id: 4
