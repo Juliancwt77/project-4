@@ -9,34 +9,40 @@
       </div>
     </div>
 
-    <div class="heading col-lg-12">
-      <h4>Title: <%= @current_candidate_individual_info.title %> </h4>
-      <h4>Rate ($/hr): <%= @current_candidate_individual_info.rate %> </h4>
-      <h4>Date Listed: <%= @current_candidate_individual_info.updated_at %> </h4>
-    </div>
 
-    <div class="col-md-12">
-      <table class="table table-list-search">
-        <thead>
-          <tr>
-            <th>Date Offer Made</th>
-            <th>Company Name</th>
-            <th>Contact Name</th>
-            <th>Job Start Date</th>
-            <th>Job End Date</th>
-            <th>Job Scope</th>
-            <th>Message</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-
-        <tbody>
           <!-- In our model, we have assumed one condidate can only have one posting, below condition is to deal with situation where the candidate have created one job profile but have not posted it. May need to refactor if we change model assumption one condidate can have many postings. -->
+          <% if @current_candidate_individual_info.present? %>
+
+
           <% if @current_candidate_individual_info.status == 0 %>
-              <tr>
-                  <td>You have not posted your job, pls check your job profile.</td>
-              </tr>
+          <div class="heading col-lg-12">
+                  <h4>You have not posted your job, pls check your job profile.</h4>
+          </div>
           <% elsif @current_candidate_individual_info.posting.recruits.exists? %>
+
+          <div class="heading col-lg-12">
+            <h4>Title: <%= @current_candidate_individual_info.title %> </h4>
+            <h4>Rate ($/hr): <%= @current_candidate_individual_info.rate %> </h4>
+            <h4>Date Listed: <%= @current_candidate_individual_info.updated_at %> </h4>
+          </div>
+
+          <div class="col-md-12">
+            <table class="table table-list-search">
+              <thead>
+                <tr>
+                  <th>Date Offer Made</th>
+                  <th>Company Name</th>
+                  <th>Contact Name</th>
+                  <th>Job Start Date</th>
+                  <th>Job End Date</th>
+                  <th>Job Scope</th>
+                  <th>Message</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
               <% @current_candidate_individual_info.posting.recruits.reverse_order.each do |offer_received| %>
                   <tr>
                       <td> <%= offer_received.updated_at %> </td>
@@ -50,13 +56,19 @@
                   </tr>
               <% end %>
           <% else !@current_candidate_individual_info.posting.recruits.exists? %>
-              <tr>
-                  <td>There are no offers at this moment.</td>
-              </tr>
+            <div class="heading col-lg-12">
+                  <h4>There are no offers at this moment.</h4>
+                </div>
           <% end %>
-        <tbody>
+        </tbody>
 
       </table>
     </div>
+    <% else %>
+    <div class="heading col-lg-12">
+            <h4>Please create a job profile.</h4>
+    </div>
+
+    <% end %>
   </div>
 </div>

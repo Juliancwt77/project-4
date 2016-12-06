@@ -32,8 +32,8 @@ class PostingsController < ApplicationController
     # @new_posting = Posting.new()
     # @new_posting.candidate_id = @candidate.id
 
-    if current_user.candidate.posting.id.present?
-      
+    if current_user.candidate.posting.present?
+
       @candidate = Candidate.find(params[:candidate_id])
       # @new_posting = Posting.new()
       # @new_posting.candidate_id = @candidate.id
