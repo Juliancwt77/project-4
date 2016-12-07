@@ -1,9 +1,4 @@
-<!-- <h1>Home#index</h1>
-<p>Find me in app/views/home/contact.html.erb THIS IS GREATTTTT</p>
-<%= link_to 'Sign out', '/users/sign_out', :method => :delete %> -->
-
-
-  <body>
+<body>
 
     <!--Banner-->
     <div class="banner">
@@ -18,7 +13,7 @@
               <div class="intro-para text-center quote">
                 <p class="big-text">Find good quality freelancers through us</p>
                 <p class="small-text">More than 500,000 businesses use Freelancer Xchange for top quality talent</p>
-                <a href="#." class="btn">Find a Freelancer</a>
+                <a href="/postings" class="btn">Find a Freelancer</a>
               </div>
               <a href="#feature" class="mouse-hover"><div class="mouse"></div></a>
             </div>
@@ -36,15 +31,15 @@
         <div class="row">
           <div class="header-section text-center">
             <h2>Features</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nesciunt vitae,<br> maiores, magni dolorum aliquam.</p>
+            <p>Find a freelancer to develop your website within minutes.<br> We have more than 10,000 freelancers listed on our platform</p>
             <hr class="bottom-line">
           </div>
           <div class="feature-info">
             <div class="fea">
               <div class="col-md-4">
                 <div class="heading pull-right">
-                  <h4>Latest Technologies</h4>
-                  <p>Donec et lectus bibendum dolor dictum auctor in ac erat. Vestibulum egestas sollicitudin metus non urna in eros tincidunt convallis id id nisi in interdum.</p>
+                  <h4>Latest Promotion</h4>
+                  <p>Hire freelancer at zero cost for the first 3 months</p>
                 </div>
                 <div class="fea-img pull-left">
                   <i class="fa fa-css3"></i>
@@ -54,19 +49,19 @@
             <div class="fea">
               <div class="col-md-4">
                 <div class="heading pull-right">
-                  <h4>Toons Background</h4>
-                  <p>Donec et lectus bibendum dolor dictum auctor in ac erat. Vestibulum egestas sollicitudin metus non urna in eros tincidunt convallis id id nisi in interdum.</p>
+                  <h4>How do payment works ?</h4>
+                  <p>Pay your freelancer per hour or per project, whichever you choose. For hourly projects, the freelancer bills you once a week, and we'll send a secure payment to your freelancer.</p>
                 </div>
                 <div class="fea-img pull-left">
-                  <i class="fa fa-drupal"></i>
+                  <i class="fa fa-credit-card"></i>
                 </div>
               </div>
             </div>
             <div class="fea">
               <div class="col-md-4">
                 <div class="heading pull-right">
-                  <h4>Award Winning Design</h4>
-                  <p>Donec et lectus bibendum dolor dictum auctor in ac erat. Vestibulum egestas sollicitudin metus non urna in eros tincidunt convallis id id nisi in interdum.</p>
+                  <h4>Award Winning Platform</h4>
+                  <p>Best Start-up award in 2017</p>
                 </div>
                 <div class="fea-img pull-left">
                   <i class="fa fa-trophy"></i>
@@ -85,22 +80,22 @@
           <div class="col-md-6">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
               <div class="orga-stru">
-                <h3>65%</h3>
-                <p>Say NO!!</p>
+                <h3>$0 <br> per <br> mth</h3>
+                <p>Limited Access</p>
                 <i class="fa fa-male"></i>
               </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
               <div class="orga-stru">
-                <h3>20%</h3>
-                <p>Says Yes!!</p>
+                <h3>$10 <br> per <br> mth</h3>
+                <p>First month Free</p>
                 <i class="fa fa-male"></i>
               </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
               <div class="orga-stru">
-                <h3>15%</h3>
-                <p>Can't Say!!</p>
+                <h3>$50 <br> per <br> mth</h3>
+                <p>Free Consultation</p>
                 <i class="fa fa-male"></i>
               </div>
             </div>
@@ -108,10 +103,10 @@
           <div class="col-md-6">
             <div class="detail-info">
               <hgroup>
-                <h3 class="det-txt"> Is inclusive quality education affordable?</h3>
-                <h4 class="sm-txt">(Revised and Updated for 2016)</h4>
+                <h3 class="det-txt"> Each option includes access to our large pool of top-quality freelancers. Choose the level of service you need</h3>
+
               </hgroup>
-              <p class="det-p">Donec et lectus bibendum dolor dictum auctor in ac erat. Vestibulum egestas sollicitudin metus non urna in eros tincidunt convallis id id nisi in interdum.</p>
+
             </div>
           </div>
         </div>
@@ -124,22 +119,23 @@
       <div class="container">
         <div class="row">
           <div class="header-section text-center">
-            <h2>Meet Our Faculty Member</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nesciunt vitae,<br> maiores, magni dolorum aliquam.</p>
+            <h2>Meet Our Freelancers</h2>
+            <p>Meet three of our top-rated freelancers</p>
             <hr class="bottom-line">
           </div>
           <div class="col-lg-4 col-md-4 col-sm-4">
             <div class="pm-staff-profile-container" >
               <div class="pm-staff-profile-image-wrapper text-center">
                 <div class="pm-staff-profile-image">
-                  <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
+                  <%= image_tag "developer1.jpg", class: "img-thumbnail img-circle " %>
+
                 </div>
               </div>
               <div class="pm-staff-profile-details text-center">
                 <p class="pm-staff-profile-name">Bryan Johnson</p>
-                <p class="pm-staff-profile-title">Lead Software Engineer</p>
+                <p class="pm-staff-profile-title">Backend Software Engineer</p>
 
-                <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
+                <p class="pm-staff-profile-bio">I am a backend developer, and I am always looking for challenging projects to apply my skills to. I did complex projects, and I know how to plan architecture for projects flexible for changes, and bug free. I focus on Wordpress, OpenCart, PHP, MySQL.</p>
               </div>
             </div>
           </div>
@@ -147,14 +143,15 @@
             <div class="pm-staff-profile-container" >
               <div class="pm-staff-profile-image-wrapper text-center">
                 <div class="pm-staff-profile-image">
-                  <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
+                      <%= image_tag "developer2.jpg", class: "img-thumbnail img-circle " %>
+
                 </div>
               </div>
               <div class="pm-staff-profile-details text-center">
-                <p class="pm-staff-profile-name">Bryan Johnson</p>
-                <p class="pm-staff-profile-title">Lead Software Engineer</p>
+                <p class="pm-staff-profile-name">Jennifer Lawrence</p>
+                <p class="pm-staff-profile-title">Front End Developer</p>
 
-                <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
+                <p class="pm-staff-profile-bio">I have over 5 years experience in the web and software development. My portfolio includes several of the projects that I’ve successfully developed. I believe my strong points are primarily my Creativeness, Experience, Punctuality, and dedication to what I do.</p>
               </div>
             </div>
           </div>
@@ -162,14 +159,14 @@
             <div class="pm-staff-profile-container" >
               <div class="pm-staff-profile-image-wrapper text-center">
                 <div class="pm-staff-profile-image">
-                    <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
+                <%= image_tag "developer3.jpg", class: "img-thumbnail img-circle " %>
                 </div>
               </div>
               <div class="pm-staff-profile-details text-center">
-                <p class="pm-staff-profile-name">Bryan Johnson</p>
+                <p class="pm-staff-profile-name">Tom Peterson</p>
                 <p class="pm-staff-profile-title">Lead Software Engineer</p>
 
-                <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
+                <p class="pm-staff-profile-bio">I have more than 6 years of experience .I am the top rated developer on upwork.More than 35 projects with five stars jobs on Freelancer Xchange.</p>
               </div>
             </div>
           </div>
@@ -183,18 +180,18 @@
         <div class="row">
           <div class="header-section text-center">
             <h2 class="white">See What Our Customer Are Saying?</h2>
-            <p class="white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nesciunt vitae,<br> maiores, magni dolorum aliquam.</p>
+            <p class="white">Why clients and their freelancers love Freelancer Xchange</p>
             <hr class="bottom-line bg-white">
           </div>
           <div class="col-md-6 col-sm-6">
             <div class="text-comment">
-              <p class="text-par">"Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, nec sagittis sem"</p>
+              <p class="text-par">“We can hire engineers who code in different languages than we write internally. Our Pro is one of the best hires we've made.</p>
               <p class="text-name">Abraham Doe - Creative Dırector</p>
             </div>
           </div>
           <div class="col-md-6 col-sm-6">
             <div class="text-comment">
-              <p class="text-par">"Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, nec sagittis sem"</p>
+              <p class="text-par">“I attribute our success building and scaling our startup to Upwork. It’s how we recruit new people, manage payments and track deadlines.”</p>
               <p class="text-name">Abraham Doe - Creative Dırector</p>
             </div>
           </div>
@@ -246,7 +243,7 @@
         </div>
         <br>
         <div>
-          <h4><span class="glyphicon glyphicon-envelope"></span><a href="mailto:enquiries@proption.com">&nbsp;&nbsp;&nbsp; enquiries@proption.com</a></h4>
+          <h4><span class="glyphicon glyphicon-envelope"></span><a href="mailto:enquiries@freelancerxchange.com">&nbsp;&nbsp;&nbsp; enquiries@freelancerxchange.com</a></h4>
         </div>
       </div>
     </div>
