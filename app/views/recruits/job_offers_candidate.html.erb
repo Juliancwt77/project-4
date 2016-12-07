@@ -15,15 +15,16 @@
 
 
           <% if @current_candidate_individual_info.status == 0 && !@current_candidate_individual_info.posting.recruits.exists? %>
-          <div class="heading col-lg-12">
-                  <h4>You have not posted your job profile, pls check your job profile.</h4>
-          </div>
+            <div class="heading col-lg-12">
+                <h4>You have not posted your job profile, pls check your job profile.</h4>
+            </div>
+
           <% elsif @current_candidate_individual_info.posting.recruits.exists? %>
 
           <div class="heading col-lg-12">
             <h4>Title: <%= @current_candidate_individual_info.title %> </h4>
             <h4>Rate ($/hr): <%= @current_candidate_individual_info.rate %> </h4>
-            <h4>Date Listed: <%= @current_candidate_individual_info.updated_at.in_time_zone("Singapore") %> </h4>
+            <h4>Date Posted: <%= @current_candidate_individual_info.updated_at.in_time_zone("Singapore").strftime("%e %B %Y") %> </h4>
           </div>
 
           <div class="col-md-12">
@@ -53,9 +54,6 @@
                       <td> <%= offer_received.scope %> </td>
                       <td> Message here!!! </td>
 
-
-
-                <%= offer_received.status %>
                 <% if offer_received.status == 0 %>
                       <td>
                         <div>
@@ -64,64 +62,63 @@
                             <%= hidden_field_tag :status, 2 %>
 
 
-                        <%= button_tag(type: 'submit', class:"btn btn-info btn-md tip-right", title: 'Accept Offer') do %>
+                          <%= button_tag(type: 'submit', class:"btn btn-info btn-md tip-right", title: 'Accept Offer') do %>
+                          <span class="glyphicon glyphicon-send">&nbsp;</span>
+                          <span>Accept Offer</span>
+                          <% end %>
+                          <% end %>
+                        </div>
+                        <div>
+                          <br>
+
+                          <%= form_tag recruit_path(offer_received.id), method: :patch do %>
+                            <%= hidden_field_tag :status, 1 %>
+
+
+                        <%= button_tag(type: 'submit', class:"btn btn-failure btn-md tip-right", title: 'Reject Offer') do %>
                         <span class="glyphicon glyphicon-send">&nbsp;</span>
-                        <span>Accept Offer</span>
+                        <span>Reject Offer</span>
                         <% end %>
                         <% end %>
                       </div>
-                      <div>
-                        <br>
-
-                        <%= form_tag recruit_path(offer_received.id), method: :patch do %>
-                          <%= hidden_field_tag :status, 1 %>
-
-
-                      <%= button_tag(type: 'submit', class:"btn btn-failure btn-md tip-right", title: 'Reject Offer') do %>
-                      <span class="glyphicon glyphicon-send">&nbsp;</span>
-                      <span>Reject Offer</span>
-                      <% end %>
-                      <% end %>
-                    </div>
                       </td>
 
-                      <% elsif offer_received.status == 1 %>
+                <% elsif offer_received.status == 1 %>
                       <td>
                         <span class="btn btn-failure btn-md disabled">Rejected Job Offer</span>
                       </td>
 
 
-                    <% elsif offer_received.status == 2 %>
+                <% elsif offer_received.status == 2 %>
                     <td>
                     <div>
                       <%= form_tag recruit_path(offer_received.id), method: :patch do %>
                         <%= hidden_field_tag :status, 3 %>
 
-                    <%= button_tag(type: 'submit', class:"btn btn-in-progress btn-md tip-right", title: 'Mark as Complete') do %>
-                      <span class="glyphicon glyphicon-send">&nbsp;</span>
-                    <span>Mark as Complete</span>
-                    <% end %>
-                    <% end %>
-                  </div>
-                </td>
+                        <%= button_tag(type: 'submit', class:"btn btn-in-progress btn-md tip-right", title: 'Mark as Complete') do %>
+                          <span class="glyphicon glyphicon-send">&nbsp;</span>
+                        <span>Mark as Complete</span>
+                        <% end %>
+                        <% end %>
+                      </div>
+                    </td>
 
                 <% elsif offer_received.status == 3 %>
-                <td>
-                  <span class="btn btn-in-progress btn-md disabled">Pending completion confirmation</span>
-                </td>
+                    <td>
+                      <span class="btn btn-in-progress btn-md disabled">Pending completion confirmation</span>
+                    </td>
 
                 <% else offer_received.status == 4 %>
-                <td>
-                  <span class="btn btn-success btn-md disabled">Job fully completed</span>
-                </td>
-
-
-                  <% end %>
+                    <td>
+                      <span class="btn btn-success btn-md disabled">Job fully completed</span>
+                    </td>
 
                 <% end %>
 
+            <% end %>
 
-                  </tr>
+
+            </tr>
 
           <% else !@current_candidate_individual_info.posting.recruits.exists? %>
             <div class="heading col-lg-12">

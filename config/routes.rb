@@ -12,11 +12,11 @@ Rails.application.routes.draw do
 
     get 'jobs_offered_company', to: 'recruits#jobs_offered_company'
 
-    get 'candidate_accept_offer', to: 'recruits#candidate_accept_offer'
-
-    get 'candidate_reject_offer', to: 'recruits#candidate_reject_offer'
-
-    get 'candidate_complete_job', to: 'recruits#candidate_complete_job'
+    # get 'candidate_accept_offer', to: 'recruits#candidate_accept_offer'
+    #
+    # get 'candidate_reject_offer', to: 'recruits#candidate_reject_offer'
+    #
+    # get 'candidate_complete_job', to: 'recruits#candidate_complete_job'
 
     resources :recruits
 

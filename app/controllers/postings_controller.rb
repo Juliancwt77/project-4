@@ -83,7 +83,7 @@ class PostingsController < ApplicationController
     @candidate.save
     # @posting.destroy
     respond_to do |format|
-      format.html { redirect_to candidate_path, notice: 'You have successfully remove your posting' }
+      format.html { redirect_to candidate_path, notice: 'You have successfully removed your posting' }
       format.json { head :no_content }
     end
   end
