@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 
     get 'candidate_accept_offer', to: 'recruits#candidate_accept_offer'
 
+    get 'candidate_reject_offer', to: 'recruits#candidate_reject_offer'
+
+    get 'candidate_complete_job', to: 'recruits#candidate_complete_job'
+
     resources :recruits
 
     resources :candidates
