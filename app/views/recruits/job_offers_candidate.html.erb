@@ -11,22 +11,28 @@
 
 
           <!-- In our model, we have assumed one condidate can only have one posting, below condition is to deal with situation where the candidate have created one job profile but have not posted it. May need to refactor if we change model assumption one condidate can have many postings. -->
-          <% if @current_candidate_individual_info.present? %>
+
+<% if @current_candidate_individual_info.present? %>
 
 
-          <% if @current_candidate_individual_info.status == 0 && !@current_candidate_individual_info.posting.recruits.exists? %>
-          <div class="heading col-lg-12">
-                  <h4>You have not posted your job profile, pls check your job profile.</h4>
-          </div>
-          <% elsif @current_candidate_individual_info.posting.recruits.exists? %>
 
-          <div class="heading col-lg-12">
+          <% if @current_candidate_individual_info.posting.recruits.exists? %>
+
+              <% if @current_candidate_individual_info.status == 0 %>
+
+              <div class="heading col-lg-12">
+                    <h4>You have not posted your job profile, pls check your job profile.</h4>
+              </div>
+
+              <% else @current_candidate_individual_info.status == 1 %>
+
+              <div class="heading col-lg-12">
             <h4>Title: <%= @current_candidate_individual_info.title %> </h4>
             <h4>Rate ($/hr): <%= @current_candidate_individual_info.rate %> </h4>
             <h4>Date Listed: <%= @current_candidate_individual_info.updated_at.in_time_zone("Singapore") %> </h4>
-          </div>
+            </div>
 
-          <div class="col-md-12">
+            <div class="col-md-12">
             <table class="table table-list-search">
               <thead>
                 <tr>
@@ -43,7 +49,7 @@
 
               <tbody>
 
-              <% @current_candidate_individual_info.posting.recruits.reverse_order.each do |offer_received| %>
+                  <% @current_candidate_individual_info.posting.recruits.reverse_order.each do |offer_received| %>
                   <tr>
                       <td> <%= offer_received.updated_at %> </td>
                       <td> <%= offer_received.company.company_name %> </td>
@@ -55,8 +61,8 @@
 
 
 
-                <%= offer_received.status %>
-                <% if offer_received.status == 0 %>
+                      <%= offer_received.status %>
+                      <% if offer_received.status == 0 %>
                       <td>
                         <div>
 
@@ -69,8 +75,8 @@
                         <span>Accept Offer</span>
                         <% end %>
                         <% end %>
-                      </div>
-                      <div>
+                        </div>
+                        <div>
                         <br>
 
                         <%= form_tag recruit_path(offer_received.id), method: :patch do %>
@@ -91,9 +97,9 @@
                       </td>
 
 
-                    <% elsif offer_received.status == 2 %>
-                    <td>
-                    <div>
+                      <% elsif offer_received.status == 2 %>
+                      <td>
+                        <div>
                       <%= form_tag recruit_path(offer_received.id), method: :patch do %>
                         <%= hidden_field_tag :status, 3 %>
 
@@ -102,26 +108,27 @@
                     <span>Mark as Complete</span>
                     <% end %>
                     <% end %>
-                  </div>
-                </td>
+                    </div>
+                  </td>
 
-                <% elsif offer_received.status == 3 %>
-                <td>
+                  <% elsif offer_received.status == 3 %>
+                  <td>
                   <span class="btn btn-in-progress btn-md disabled">Pending completion confirmation</span>
-                </td>
+                  </td>
 
-                <% else offer_received.status == 4 %>
-                <td>
+                  <% else offer_received.status == 4 %>
+                  <td>
                   <span class="btn btn-success btn-md disabled">Job fully completed</span>
-                </td>
+                  </td>
 
 
-                  <% end %>
+                    <% end %>
 
-                <% end %>
+                    <% end %>
 
 
-                  </tr>
+                </tr>
+              <% end %>
 
           <% else !@current_candidate_individual_info.posting.recruits.exists? %>
             <div class="heading col-lg-12">
@@ -132,6 +139,7 @@
 
       </table>
     </div>
+
     <% else %>
     <div class="heading col-lg-12">
             <h4>Please create a job profile.</h4>
