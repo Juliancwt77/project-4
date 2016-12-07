@@ -50,7 +50,7 @@ setTimeout(function () {
 })
 
 
-/ SEARCH/FILTER FUNCTION FOR ALL LISTINGS, MY PROPERTIES, MY BIDS
+// /SEARCH/FILTER FUNCTION FOR ALL LISTINGS, MY PROPERTIES, MY BIDS
 
   var activeSystemClass = $('.list-group-item.active')
 
