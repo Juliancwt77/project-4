@@ -11,65 +11,99 @@ class RecruitsController < ApplicationController
 
   end
 
-  def candidate_accept_offer
+  # def candidate_accept_offer
+  #
+  #     @job_offer = Recruit.find(params[:id]
+  #
+  #     @job_offer.status = 2
+  #     @job_offer.save
+  #
+  #     respond_to do |format|
+  #       if @job_offer.save
+  #
+  #         format.html { redirect_to job_offers_candidate_path, notice: 'You have successfully accepted your offer'}
+  #         format.json { render :show, status: :ok, location: @job_offer}
+  #       else
+  #         format.html { render :new }
+  #         format.json { render json: @job_offer.errors, status: :unprocessable_entity }
+  #       end
+  #     end
+  #
+  # end
 
+  # def candidate_reject_offer
+  #
+  #
+  #   @job_offer = Recruit.find(params[:id])
+  #
+  #     @job_offer.status = 1
+  #     @job_offer.save
+  #
+  #     respond_to do |format|
+  #       if @job_offer.save
+  #         format.html { redirect_to job_offers_candidate_path, notice: 'You have rejected the job offer'}
+  #         format.json { render :show, status: :ok, location: @job_offer}
+  #       else
+  #         format.html { render :new }
+  #         format.json { render json: @job_offer.errors, status: :unprocessable_entity }
+  #       end
+  #     end
+  #
+  # end
+  #
+  # def candidate_complete_job
+  #
+  #
+  #   @job_offer = Recruit.find(params[:id])
+  #
+  #     @job_offer.status = 3
+  #     @job_offer.save
+  #
+  #     respond_to do |format|
+  #       if @job_offer.save
+  #         format.html { redirect_to job_offers_candidate_path, notice: 'You have completed the job'}
+  #
+  #         format.html { redirect_to job_offers_candidate_path, notice: 'You have successfully submitted your offer'}
+  #
+  #         format.json { render :show, status: :ok, location: @job_offer}
+  #       else
+  #         format.html { render :new }
+  #         format.json { render json: @job_offer.errors, status: :unprocessable_entity }
+  #       end
+  #     end
+  #
+  # end
+  #
 
-    @job_offer = Recruit.find(params[:id])
+  def update
 
-      @job_offer.status = 2
+      @job_offer = Recruit.find(params[:id])
+      @job_offer.status = params[:status]
       @job_offer.save
 
-      respond_to do |format|
-        if @job_offer.save
-          format.html { redirect_to job_offers_candidate_path, notice: 'You have successfully accepted your offer'}
-          format.json { render :show, status: :ok, location: @job_offer}
-        else
-          format.html { render :new }
-          format.json { render json: @job_offer.errors, status: :unprocessable_entity }
-        end
+      if current_user.user_type == 'Freelancer'
+          respond_to do |format|
+            if @job_offer.save
+              format.html { redirect_to job_offers_candidate_path, notice: 'You have successfully submitted your chosen action'}
+              format.json { render :show, status: :ok, location: @job_offer}
+            else
+              format.html { render :new }
+              format.json { render json: @job_offer.errors, status: :unprocessable_entity }
+            end
+          end
+      else
+          respond_to do |format|
+            if @job_offer.save
+              format.html { redirect_to jobs_offered_company_path, notice: 'You have successfully submitted your chosen action'}
+              format.json { render :show, status: :ok, location: @job_offer}
+            else
+              format.html { render :new }
+              format.json { render json: @job_offer.errors, status: :unprocessable_entity }
+            end
+          end
       end
-
   end
 
-  def candidate_reject_offer
-
-
-    @job_offer = Recruit.find(params[:id])
-
-      @job_offer.status = 1
-      @job_offer.save
-
-      respond_to do |format|
-        if @job_offer.save
-          format.html { redirect_to job_offers_candidate_path, notice: 'You have rejected the job offer'}
-          format.json { render :show, status: :ok, location: @job_offer}
-        else
-          format.html { render :new }
-          format.json { render json: @job_offer.errors, status: :unprocessable_entity }
-        end
-      end
-
-  end
-
-  def candidate_complete_job
-
-
-    @job_offer = Recruit.find(params[:id])
-
-      @job_offer.status = 3
-      @job_offer.save
-
-      respond_to do |format|
-        if @job_offer.save
-          format.html { redirect_to job_offers_candidate_path, notice: 'You have completed the job'}
-          format.json { render :show, status: :ok, location: @job_offer}
-        else
-          format.html { render :new }
-          format.json { render json: @job_offer.errors, status: :unprocessable_entity }
-        end
-      end
-
-  end
 
   def jobs_offered_company
 
@@ -89,7 +123,7 @@ class RecruitsController < ApplicationController
 
 
   def create
-    @new_recruit = Recruit.new()
+    @new_recruit = Recruit.new
     @new_recruit.status = 0
     @new_recruit.scope = params[:recruit][:scope]
     @new_recruit.start_date = params[:recruit][:start_date]
