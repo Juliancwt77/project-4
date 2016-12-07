@@ -13,13 +13,15 @@ class RecruitsController < ApplicationController
 
   def candidate_accept_offer
 
-    @job_offer = Recruits.find(params[:id])
+
+    @job_offer = Recruit.find(params[:id])
+
       @job_offer.status = 2
       @job_offer.save
 
       respond_to do |format|
         if @job_offer.save
-          format.html { redirect_to candidate_accept_offer_path, notice: 'You have successfully submitted your offer'}
+          format.html { redirect_to candidate_accept_offer_path, notice: 'You have successfully accepted your offer'}
           format.json { render :show, status: :ok, location: @job_offer}
         else
           format.html { render :new }

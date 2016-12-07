@@ -55,25 +55,35 @@
 
 
 
-
+                <%= offer_received.id %>
                 <% if offer_received.status == 0 %>
-
                       <td>
-
-
-                        <%= offer_received.id %>
-
-                        <%= form_tag candidate_accept_offer_path, method: :patch do %>
+                        <div>
+                        <%= form_tag candidate_accept_offer_path, method: :get do %>
                         <%= hidden_field_tag :id, offer_received.id %>
 
                         <%= button_tag(type: 'submit', class:"btn btn-success btn-md tip-right", title: 'Accept Offer') do %>
-                        <span class="glyphicon glyphicon-send"></span>
+                        <span>Accept Offer</span>
                         <% end %>
                         <% end %>
+                      </div>
+                      <div>
+                        <br>
+                      <%= form_tag candidate_accept_offer_path, method: :get do %>
+                      <%= hidden_field_tag :id, offer_received.id %>
 
+                      <%= button_tag(type: 'submit', class:"btn btn-failure btn-md tip-right", title: 'Reject Offer') do %>
+                      <span>Reject Offer</span>
+                      <% end %>
+                      <% end %>
+                    </div>
                       </td>
 
+
+
                   <else>
+
+
 
 
                   <% end %>
