@@ -16,7 +16,7 @@
 
 
 
-          <% if @current_candidate_individual_info.posting.recruits.exists? %>
+          <% if @current_candidate_individual_info.posting.recruits.present? %>
 
               <% if @current_candidate_individual_info.status == 0 %>
 
@@ -61,7 +61,6 @@
 
 
 
-                      <%= offer_received.status %>
                       <% if offer_received.status == 0 %>
                       <td>
                         <div>
