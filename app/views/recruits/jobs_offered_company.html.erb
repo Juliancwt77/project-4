@@ -41,16 +41,30 @@
                     <td> <%= offer_sent.end_date %> </td>
                     <td> <%= offer_sent.scope %> </td>
                     <td> Message Here!!! </td>
-                    <td> 
 
+                    <% if offer_sent.status == 0 %>
+                        <td>
+                            <span class="btn btn-info btn-block">Job Offered and Pending Acceptance</span>
+                        </td>
+                    <% elsif offer_sent.status == 1 %>
+                        <td>
+                            <span class="btn btn-failure btn-block">Job Offer Declined</span>
+                        </td>
+                    <% elsif offer_sent.status == 2 %>
+                        <td>
+                            <span class="btn btn-in-progress btn-block">Job Offer Accepted and In Progress</span>
+                        </td>
+                    <% elsif offer_sent.status == 3 %>
+                        <td>
+                            <span class="btn btn-success btn-block">Job Completion To Be Confirmed</span>
+                        </td>
+                    <% elsif offer_sent.status == 4 %>
+                        <td>
+                            <span class="btn btn-success btn-block">Job Completed</span>
+                        </td>
+                    <% end %>
 
-
-
-
-
-
-                    </td>
-                <tr>
+                </tr>
             <% end %>
         <tbody>
       </table>
