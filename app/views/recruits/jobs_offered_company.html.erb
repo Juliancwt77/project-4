@@ -44,23 +44,35 @@
 
                     <% if offer_sent.status == 0 %>
                         <td>
-                            <span class="btn btn-info btn-block">Job Offered and Pending Acceptance</span>
+                            <span class="btn btn-info btn-block disabled">Job Offered and Pending Acceptance</span>
                         </td>
                     <% elsif offer_sent.status == 1 %>
                         <td>
-                            <span class="btn btn-failure btn-block">Job Offer Declined</span>
+                            <span class="btn btn-failure btn-block disabled">Job Offer Declined</span>
                         </td>
                     <% elsif offer_sent.status == 2 %>
                         <td>
-                            <span class="btn btn-in-progress btn-block">Job Offer Accepted and In Progress</span>
+                            <span class="btn btn-in-progress btn-block disabled">Job Offer Accepted and In Progress</span>
                         </td>
+
                     <% elsif offer_sent.status == 3 %>
                         <td>
-                            <span class="btn btn-success btn-block">Job Completion To Be Confirmed</span>
+                            <%= form_tag recruit_path(offer_sent.id), method: :patch do %>
+                                <%= hidden_field_tag :status, 4 %>
+                                <%= button_tag(type: 'submit', class:"btn btn-in-progress btn-md tip-right", title: 'Confirm Job Completion') do %>
+                                <span class="glyphicon glyphicon-send">&nbsp;</span>
+                                <span>Confirm Job Completion</span>
+                                <% end %>
+                            <% end %>
                         </td>
+
                     <% elsif offer_sent.status == 4 %>
                         <td>
-                            <span class="btn btn-success btn-block">Job Completed</span>
+                            <span class="btn btn-success btn-block disabled">Job Completed</span>
+                        </td>
+                    <% else %>
+                        <td>
+                            <span class="btn btn-failure btn-block disabled">Unknown Status</span>
                         </td>
                     <% end %>
 
