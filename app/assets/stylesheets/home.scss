@@ -81,8 +81,44 @@ ALERT MESSAGE
 //     width:90%
 // }
 
+// browse page closest
 
+.boxes{
+    border:1px solid;
+    margin-bottom: 10px;
+}
+.img-upper{
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+.description{
+    text-align: justify;
+    padding: 10px;
+}
+.btn-primary{
+    margin-top: 10px;
+}
+.description h2{
+   margin-top: 0px;
+    height: 60px;
+    text-align: start;
+}
+img.img-responsive {
+    // height: 155px;
 
+  min-height: 100%; 
+   width: auto;
+}
+
+// end of browse page CSS
+//
+//
+// img {
+//  max-width: 100%; }
+
+.object-fit_cover {
+  object-fit: cover;
+}
 
 
 // mentor theme
