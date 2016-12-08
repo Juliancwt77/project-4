@@ -38,7 +38,7 @@
                 <div class="form-group">
                     <%= f.label :'Job Scope', class:"col-lg-3 control-label" %>
                     <div class="col-md-8">
-                        <%= f.text_field :scope, autofocus: true, class: "form-control", placeholder:"Brief Description of job scope" %>
+                        <%= f.text_field :scope, autofocus: true, class: "form-control", placeholder:"Brief Description of job scope", required: true %>
                         <br/>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                   <%= f.label :'Start Date', class:"col-lg-3 control-label" %>
                   <div class="col-md-8">
 
-                  <%= f.date_field :start_date, class: "form-control" %>
+                  <%= f.date_field :start_date, class: "form-control", required: true %>
                   <!-- <%= f.time_select :start_date, :ignore_date => true, class: "form-control" %> -->
                   </div>
                 </div>
@@ -62,7 +62,7 @@
                   <%= f.label :'End Date', class:"col-lg-3 control-label" %>
                   <div class="col-md-8">
 
-                  <%= f.date_field :end_date, class: "form-control" %>
+                  <%= f.date_field :end_date, class: "form-control", required: true %>
                   <!-- <%= f.time_select :end_date, :ignore_date => true, class: "form-control" %> -->
                   </div>
                 </div>
