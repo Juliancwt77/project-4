@@ -1,5 +1,6 @@
 <div class="container">
 	<div class="row">
+		<h2>Your Profile Preview</h2>
 		<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
     	 <div class="well profile">
             <div class="col-sm-12">
@@ -67,7 +68,7 @@
 									<h2><strong>   </strong></h2>
 									<p><small>   </small></p>
 									<%= link_to edit_candidate_path, class: "btn btn-info btn-block" do %>
-									<i class="fa fa-user"></i> Edit Profile
+									<i class="fa fa-user">&nbsp;</i> Edit Profile
 									<% end %>
 							</div>
 
@@ -80,12 +81,12 @@
 								<%= form_tag postings_path, method: :post do %>
 									<%= hidden_field_tag :candidate_id, current_user.candidate.id %></td>
 
-	                <div class="col-xs-12 col-sm-4 emphasis">
+	                <div class="col-xs-12 col-sm-5 emphasis">
 
                     <h2><strong>   </strong></h2>
                     <p><small>   </small></p>
 
-												<%= button_tag(type: 'submit', title: 'Submit Posting', class: "btn btn-success btn-block") do %><i class="fa fa-plus-circle"></i> Submit Posting
+												<%= button_tag(type: 'submit', title: 'Submit Posting', class: "btn btn-success btn-block") do %><i class="fa fa-plus-circle">&nbsp;</i> Post Your Profile
 												<% end %>
                 	</div>
 								<% end %>
@@ -93,7 +94,7 @@
 
 
 							<% else %>
-                	<div class="col-xs-12 col-sm-4 emphasis">
+                	<div class="col-xs-12 col-sm-5 emphasis">
                     <h2><strong>   </strong></h2>
                     <p><small>   </small></p>
                     <div class="btn-group dropup btn-block">
@@ -101,14 +102,14 @@
 
 											<%= @candidate.status %>
 											<%= @candidate.id %>
-											
+
 
 
 												<!-- <%= link_to '', posting_path, class: 'btn btn-danger', method: :delete, data: { confirm: 'This will delete your property. Are you sure?' }%><i class="fa fa-plus-circle"></i> Remove Posting -->
 												<%= form_tag posting_path, method: :delete do %>
 												<%= hidden_field_tag :candidate_id, current_user.candidate.posting.id %></td>
 
-												<%= button_tag(type: 'submit', title: 'Submit Posting', class: "btn btn-success btn-block") do %><i class="fa fa-remove"></i> Remove Posting
+												<%= button_tag(type: 'submit', title: 'Submit Posting', class: "btn btn-success btn-block") do %><i class="fa fa-remove">&nbsp;</i> Remove Posting
 												<% end %>
 												<% end %>
 

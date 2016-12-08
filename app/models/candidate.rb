@@ -11,4 +11,9 @@ class Candidate < ApplicationRecord
 
     mount_uploader :photo, PictureUploader
 
+    validates :title, length: { maximum: 25 }, presence: true
+    validates :language, presence: true
+    validates :description, length: { maximum: 500 }, presence: true
+    validates :rate, numericality: { only_integer: true }, presence: true
+
 end

@@ -1,6 +1,5 @@
 <div class="container">
   <div class="row">
-
     <div class="heading heading-contact">
       <div class="col-lg-12">
         <div class="section-heading">
@@ -8,33 +7,29 @@
         </div>
       </div>
     </div>
-
-
           <!-- In our model, we have assumed one condidate can only have one posting, below condition is to deal with situation where the candidate have created one job profile but have not posted it. May need to refactor if we change model assumption one condidate can have many postings. -->
-
 <% if @current_candidate_individual_info.present? %>
+    <% if @current_candidate_individual_info.posting.present? %>
 
+                <div class="heading col-lg-12">
+                <h4>Title: <%= @current_candidate_individual_info.title %> </h4>
+                <h4>Rate ($/hr): <%= @current_candidate_individual_info.rate %> </h4>
+                <h4>Date Listed: <%= @current_candidate_individual_info.updated_at.in_time_zone("Singapore") %> </h4>
+                <h4>Status:
+                  <% if @current_candidate_individual_info.status == 0 %>
 
+                      <span class ="post" >You have not posted your job profile</span>
 
-          <% if @current_candidate_individual_info.posting.recruits.present? %>
+                  <% else @current_candidate_individual_info.status == 1 %>
 
-              <% if @current_candidate_individual_info.status == 0 %>
+                      <span class ="user" >You have posted your job profile</span>
 
-              <div class="heading col-lg-12">
-                    <h4>You have not posted your job profile, pls check your job profile.</h4>
-              </div>
-
-              <% else @current_candidate_individual_info.status == 1 %>
-
-              <div class="heading col-lg-12">
-            <h4>Title: <%= @current_candidate_individual_info.title %> </h4>
-            <h4>Rate ($/hr): <%= @current_candidate_individual_info.rate %> </h4>
-            <h4>Date Listed: <%= @current_candidate_individual_info.updated_at.in_time_zone("Singapore") %> </h4>
-            </div>
-
-            <div class="col-md-12">
-            <table class="table table-list-search">
-              <thead>
+                  <% end %>
+                 </h4>
+                </div>
+                <div class="col-md-12">
+                <table class="table table-list-search">
+                <thead>
                 <tr>
                   <th>Date Offer Made</th>
                   <th>Company Name</th>
@@ -46,9 +41,7 @@
                   <th>Action</th>
                 </tr>
               </thead>
-
               <tbody>
-
                   <% @current_candidate_individual_info.posting.recruits.reverse_order.each do |offer_received| %>
                   <tr>
                       <td> <%= offer_received.updated_at %> </td>
@@ -58,17 +51,11 @@
                       <td> <%= offer_received.end_date.in_time_zone("Singapore") %> </td>
                       <td> <%= offer_received.scope %> </td>
                       <td> Message here!!! </td>
-
-
-
                       <% if offer_received.status == 0 %>
                       <td>
                         <div>
-
                           <%= form_tag recruit_path(offer_received.id), method: :patch do %>
                             <%= hidden_field_tag :status, 2 %>
-
-
                         <%= button_tag(type: 'submit', class:"btn btn-info btn-md tip-right", title: 'Accept Offer') do %>
                         <span class="glyphicon glyphicon-send">&nbsp;</span>
                         <span>Accept Offer</span>
@@ -77,11 +64,8 @@
                         </div>
                         <div>
                         <br>
-
                         <%= form_tag recruit_path(offer_received.id), method: :patch do %>
                           <%= hidden_field_tag :status, 1 %>
-
-
                       <%= button_tag(type: 'submit', class:"btn btn-failure btn-md tip-right", title: 'Reject Offer') do %>
                       <span class="glyphicon glyphicon-send">&nbsp;</span>
                       <span>Reject Offer</span>
@@ -89,19 +73,15 @@
                       <% end %>
                     </div>
                       </td>
-
                       <% elsif offer_received.status == 1 %>
                       <td>
                         <span class="btn btn-failure btn-md disabled">Rejected Job Offer</span>
                       </td>
-
-
                       <% elsif offer_received.status == 2 %>
                       <td>
                         <div>
                       <%= form_tag recruit_path(offer_received.id), method: :patch do %>
                         <%= hidden_field_tag :status, 3 %>
-
                     <%= button_tag(type: 'submit', class:"btn btn-in-progress btn-md tip-right", title: 'Mark as Complete') do %>
                       <span class="glyphicon glyphicon-send">&nbsp;</span>
                     <span>Mark as Complete</span>
@@ -109,41 +89,32 @@
                     <% end %>
                     </div>
                   </td>
-
                   <% elsif offer_received.status == 3 %>
                   <td>
                   <span class="btn btn-in-progress btn-md disabled">Pending completion confirmation</span>
                   </td>
-
                   <% else offer_received.status == 4 %>
                   <td>
                   <span class="btn btn-success btn-md disabled">Job fully completed</span>
                   </td>
-
-
                     <% end %>
 
-                    <% end %>
+     <% end %>
+<% else %>
+
+        <div class="heading col-lg-12">
+        <h4>You have not posted your job profile, pls check your job profile.</h4>
+        </div>
 
 
-                </tr>
-              <% end %>
-
-          <% else !@current_candidate_individual_info.posting.recruits.exists? %>
-            <div class="heading col-lg-12">
-                  <h4>There are no offers at this moment.</h4>
-                </div>
-          <% end %>
+<% end %>
         </tbody>
-
       </table>
     </div>
-
     <% else %>
     <div class="heading col-lg-12">
             <h4>Please create a job profile.</h4>
     </div>
-
     <% end %>
   </div>
 </div>
