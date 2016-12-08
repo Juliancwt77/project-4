@@ -104,11 +104,17 @@
   <div class="form-group">
     <label class="col-md-3 control-label"></label>
     <div class="col-md-8">
-      <div class="pull-left">
-      <%= f.submit "Save Changes", class: "btn btn-primary" %>
+      <div class="pull-right">
 
-      <%= link_to "Cancel", :back, class: "btn btn-default" %>
+        <%= f.submit "Save Changes", class: "btn btn-primary" %>
+
+        <span></span>
+
+        <%= link_to "Cancel", :back, class: "btn btn-default" %>
+
     </div>
+
+
     </div>
 
 <% end %>
