@@ -22,6 +22,12 @@ ALERT MESSAGE
   color: #5fcf80;
 }
 
+.post {
+
+    color: red;
+
+}
+
 // nagivation bar dropdown
 
 .navbar-login
@@ -106,7 +112,7 @@ ALERT MESSAGE
 img.img-responsive {
     // height: 155px;
 
-  min-height: 100%; 
+  min-height: 100%;
    width: auto;
 }
 
@@ -507,12 +513,14 @@ Work Shop
 Mentor Team
 ************************************/
 .pm-staff-profile-image{
-  // width: 150px;
-  // height: 150px;
+  width: auto;
+  height: auto;
   background-color: #C6C6C6;
   border-radius: 50%;
   display: inline-block;
   // background-size: cover;
+  //  min-height: 100%;
+  //  width: auto;
 }
 .pm-staff-profile-details {
     padding: 20px 20px;
