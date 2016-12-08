@@ -32,13 +32,13 @@
         <tbody>
             <% @offers_sent.reverse_order.each do |offer_sent| %>
                 <tr>
-                    <td> <%= offer_sent.updated_at %> </td>
+                    <td> <%= offer_sent.updated_at.strftime('%d %b %Y') %> </td>
                     <td> <%= offer_sent.posting.candidate.individual.username %> </td>
                     <td> <%= offer_sent.posting.candidate.title %> </td>
                     <td> <%= offer_sent.posting.candidate.language %> </td>
                     <td> <%= offer_sent.posting.candidate.rate %> </td>
-                    <td> <%= offer_sent.start_date %> </td>
-                    <td> <%= offer_sent.end_date %> </td>
+                    <td> <%= offer_sent.start_date.strftime('%d %b %Y') %> </td>
+                    <td> <%= offer_sent.end_date.strftime('%d %b %Y') %> </td>
                     <td> <%= offer_sent.scope %> </td>
                     <td> Message Here!!! </td>
 
@@ -83,6 +83,7 @@
 
       <% else %>
         <h4>You have not made any job offers. </h4>
+        <br>
       <% end %>
 
     </div>

@@ -1,6 +1,4 @@
-
 <div class="container">
-
 
   <div class="heading heading-contact">
     <div class="col-lg-12">
@@ -53,7 +51,7 @@
                     <h2>
 
                       <% if user_signed_in? %>
-                          <%= link_to posting.individual.username, posting_path(posting) %>
+                          <%= link_to posting.individual.username, posting_path(posting.posting.id) %>
                       <% else %>
                         <%= posting.individual.username %>
                       <% end %>
@@ -77,7 +75,7 @@
 
                         <br>
                     <% if user_signed_in? %>
-                        <%= link_to 'View Details', posting_path(posting), class:"btn btn-primary" %>
+                        <%= link_to 'View Details', posting_path(posting.posting.id), class:"btn btn-primary" %>
                     <% else %>
 
                     <% end %>
