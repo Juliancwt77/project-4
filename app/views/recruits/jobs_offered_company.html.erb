@@ -24,7 +24,7 @@
             <th>Job Start Date</th>
             <th>Job End Date</th>
             <th>Job Scope</th>
-            <th>Message</th>
+             <!-- <th>Message</th> -->
             <th>Status/Action</th>
           </tr>
         </thead>
@@ -40,7 +40,7 @@
                     <td> <%= offer_sent.start_date.strftime('%d %b %Y') %> </td>
                     <td> <%= offer_sent.end_date.strftime('%d %b %Y') %> </td>
                     <td> <%= offer_sent.scope %> </td>
-                    <td> Message Here!!! </td>
+                    <!-- <td> Message Here!!! </td> -->
 
                     <% if offer_sent.status == 0 %>
                         <td>
@@ -59,7 +59,7 @@
                         <td>
                             <%= form_tag recruit_path(offer_sent.id), method: :patch do %>
                                 <%= hidden_field_tag :status, 4 %>
-                                <%= button_tag(type: 'submit', class:"btn btn-in-progress btn-md tip-right", title: 'Confirm Job Completion') do %>
+                                <%= button_tag(type: 'submit', class:"btn btn-in-progress btn-block tip-right", title: 'Confirm Job Completion') do %>
                                 <span class="glyphicon glyphicon-send">&nbsp;</span>
                                 <span>Confirm Job Completion</span>
                                 <% end %>
