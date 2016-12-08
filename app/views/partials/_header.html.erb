@@ -23,7 +23,7 @@
         <li><%= link_to "Browse", postings_path %></li>
 
         <% if current_user.user_type == "Freelancer" %>
-            <li> <%= link_to "Jobs Offers", job_offers_candidate_path %> </li>
+            <li> <%= link_to "Jobs Offer", job_offers_candidate_path %> </li>
         <%else %>
             <li> <%= link_to "Jobs Offered", jobs_offered_company_path %> </li>
         <% end %>
@@ -58,17 +58,26 @@
                           <li class="divider navbar-login-session-bg"></li>
 
                           <li><%= link_to edit_user_registration_path, :class => "dropdowntext" do %>Your Personal Profile
-                            <!-- <span class="badge pull-right">5</span> --><span class="glyphicon glyphicon-list-alt pull-right"></span>
+                            <!-- <span class="badge pull-right">5</span> --><span class="glyphicon glyphicon-user pull-right"></span>
                             <% end %>
                           </li>
 
-            <% if current_user.user_type == "Freelancer" %>
+<% if current_user.user_type == "Freelancer" %>
 
               <li class="divider"></li>
 
-              <% if current_user.candidate.present? %>
+      <% if current_user.name.blank? %>
 
-              <li><%= link_to candidate_path id: current_user.candidate.id, class: "dropdowntext" do %>Your Job Profile
+      <li class: "post"><%= link_to edit_user_registration_path, :class => "dropdowntext",disabled: true, title: 'Please update Personal Profile first before creating a Job Profile' do %>Create Job Profile
+        <!-- <span class="badge pull-right">5</span> --><span class="glyphicon glyphicon-pencil pull-right"></span>
+        <% end %>
+        </li>
+
+
+      <% else %>
+                <% if current_user.candidate.present? %>
+
+                <li><%= link_to candidate_path id: current_user.candidate.id, class: "dropdowntext" do %>Your Job Profile
                 <!-- <span class="badge pull-right">5</span> --><span class="glyphicon glyphicon-list-alt pull-right"></span>
                 <% end %>
                 </li>
@@ -77,19 +86,20 @@
                 <% else %>
 
                 <li><%= link_to new_candidate_path, :class => "dropdowntext" do %>Create Job Profile
-                  <!-- <span class="badge pull-right">5</span> --><span class="glyphicon glyphicon-list-alt pull-right"></span>
+                  <!-- <span class="badge pull-right">5</span> --><span class="glyphicon glyphicon-pencil pull-right"></span>
                   <% end %>
                   </li>
 
 
-              <% end %>
+                <% end %>
+    <% end %>
 
-              <% else %>
+<% else %>
 
-              <% end %>
+<% end %>
 
-              <li class="divider"></li>
-              <li><a href="#">Messages <span class="badge pull-right"> 42 </span></a></li>
+              <!-- <li class="divider"></li>
+              <li><a href="#">Messages <span class="badge pull-right"> 42 </span></a></li> -->
                       </ul>
                   </li>
               </ul>
@@ -111,7 +121,7 @@
 
   <!-- END OF USER -->
 
-  <% else %>
+<% else %>
 
 
   <nav class="navbar navbar-default navbar-fixed-top">
